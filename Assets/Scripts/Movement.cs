@@ -4,15 +4,35 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public int velocity = 12;
+    public int mouseSensitivity = 120;
+
     void Start()
     {
-        
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
-    // Update is called once per frame
-    void Update()
+
+    void FixedUpdate()
     {
-        
+        Move();
+    }
+
+    private void Move()
+    {
+        // Movimiento con teclas
+        float horizontalMove = Input.GetAxis("Horizontal");
+        float verticalMove = Input.GetAxis("Vertical");
+        Vector3 movement = transform.right * horizontalMove + transform.forward * verticalMove;
+
+        if (movement != Vector3.zero)
+        {
+            transform.Translate(movement * velocity * Time.deltaTime, Space.World);
+        }
+
+        // Rotación con ratón
+        float movimientoRatonHorizontal = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
+
+        transform.Rotate(Vector3.up * movimientoRatonHorizontal, Space.World);
     }
 }
