@@ -31,8 +31,8 @@ public class Movement : MonoBehaviour
         }
 
         // Rotación con ratón
-        float movimientoRatonHorizontal = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
+        float movementMouseHorizontal = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
 
-        transform.Rotate(Vector3.up * movimientoRatonHorizontal, Space.World);
+        transform.Rotate(Vector3.up * movementMouseHorizontal, Space.World);
     }
 }

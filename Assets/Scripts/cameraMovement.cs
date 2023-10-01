@@ -27,9 +27,9 @@ public class cameraMovement : MonoBehaviour
 
     void Rotate()
     {
-        float movimientoRatonVertical = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+        float movementMouseVertical = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
-        verticalRotation -= movimientoRatonVertical;
+        verticalRotation -= movementMouseVertical;
         verticalRotation = Mathf.Clamp(verticalRotation, minVerticalAngle, maxVerticalAngle);
 
         transform.localRotation = Quaternion.Euler(verticalRotation, transform.localEulerAngles.y, 0);
