@@ -8,7 +8,7 @@ public class Pause : MonoBehaviour
     public GameObject pauseScreen;
     public GameObject hud;
     public Button resumeButton;
-    public Button exitButton;
+    public Button mainMenuButton;
     void Start()
     {
         pauseScreen.SetActive(false);
