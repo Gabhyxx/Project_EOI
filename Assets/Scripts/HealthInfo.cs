@@ -31,5 +31,13 @@ public class HealthInfo : MonoBehaviour
             player.GetComponent<Player>().health = 0;
         }
     }
+    public void GainHealth(int recoverHealth)
+    {
+        player.GetComponent<Player>().health += recoverHealth;
+        if (player.GetComponent<Player>().health > 100)
+        {
+            player.GetComponent<Player>().health = 100;
+        }
+    }
 
 }

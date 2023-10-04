@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public int velocity = 12;
+    public float velocity = 12f;
     public int mouseSensitivity = 120;
 
     void Start()

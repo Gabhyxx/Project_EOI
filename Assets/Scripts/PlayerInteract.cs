@@ -14,7 +14,18 @@ public class PlayerInteract : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            Debug.Log("PRUEBA");
+            if (GetComponent<Player>().epinephrineInjection == 1)
+            {
+                healthText.GetComponent<HealthInfo>().GainHealth(75);
+                GetComponent<Player>().epinephrineInjection = 0;
+                GetComponent<Movement>().velocity = GetComponent<Movement>().velocity * 1.05f;
+                Invoke("SlowDown", 30f);
+                
+            }
+        }
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -22,5 +33,9 @@ public class PlayerInteract : MonoBehaviour
         {
             healthText.GetComponent<HealthInfo>().TakeDamage(other.GetComponent<EnemyProperties>().damage);
         }
+    }
+    void SlowDown()
+    {
+        GetComponent<Movement>().velocity = GetComponent<Movement>().velocity * 1.05f;
     }
 }

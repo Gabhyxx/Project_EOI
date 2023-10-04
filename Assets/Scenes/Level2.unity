@@ -2795,7 +2795,7 @@ MonoBehaviour:
   pauseScreen: {fileID: 2049365106}
   hud: {fileID: 1521440484}
   resumeButton: {fileID: 1632642040}
-  exitButton: {fileID: 2136518082}
+  mainMenuButton: {fileID: 0}
 --- !u!65 &1588813402
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3903,6 +3903,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a4bbef6bd9dad0448e261c278ebb6ea, type: 3}
+--- !u!1001 &4080914718084387197
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5668773172475295659, guid: b852e66a86d902048a0ea15ae772d0d6, type: 3}
+      propertyPath: m_Name
+      value: EpinephrineInyection
+      objectReference: {fileID: 0}
+    - target: {fileID: 5998119732292331454, guid: b852e66a86d902048a0ea15ae772d0d6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.436
+      objectReference: {fileID: 0}
+    - target: {fileID: 5998119732292331454, guid: b852e66a86d902048a0ea15ae772d0d6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.249
+      objectReference: {fileID: 0}
+    - target: {fileID: 5998119732292331454, guid: b852e66a86d902048a0ea15ae772d0d6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.024
+      objectReference: {fileID: 0}
+    - target: {fileID: 5998119732292331454, guid: b852e66a86d902048a0ea15ae772d0d6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5998119732292331454, guid: b852e66a86d902048a0ea15ae772d0d6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5998119732292331454, guid: b852e66a86d902048a0ea15ae772d0d6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5998119732292331454, guid: b852e66a86d902048a0ea15ae772d0d6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5998119732292331454, guid: b852e66a86d902048a0ea15ae772d0d6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5998119732292331454, guid: b852e66a86d902048a0ea15ae772d0d6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5998119732292331454, guid: b852e66a86d902048a0ea15ae772d0d6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b852e66a86d902048a0ea15ae772d0d6, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -3914,3 +3971,4 @@ SceneRoots:
   - {fileID: 1346319869}
   - {fileID: 1994938646615308044}
   - {fileID: 1588813405}
+  - {fileID: 4080914718084387197}
