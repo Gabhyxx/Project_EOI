@@ -16,7 +16,6 @@ public class PlayerInteract : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.G))
         {
-            Debug.Log("PRUEBA");
             if (GetComponent<Player>().epinephrineInjection == 1)
             {
                 healthText.GetComponent<HealthInfo>().GainHealth(75);
