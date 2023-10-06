@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyProperties : MonoBehaviour
 {
+    public GameObject player;
+    public GameObject healthText;
     public int damage;
     // Start is called before the first frame update
     void Start()
@@ -15,5 +17,12 @@ public class EnemyProperties : MonoBehaviour
     void Update()
     {
         
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            healthText.GetComponent<HealthInfo>().TakeDamage(damage);
+        }
     }
 }

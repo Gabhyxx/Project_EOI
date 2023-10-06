@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Damage
   - Enemy
+  - PushHitbox
   layers:
   - Default
   - TransparentFX

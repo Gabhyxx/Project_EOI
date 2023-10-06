@@ -26,13 +26,7 @@ public class PlayerInteract : MonoBehaviour
             }
         }
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Damage"))
-        {
-            healthText.GetComponent<HealthInfo>().TakeDamage(other.GetComponent<EnemyProperties>().damage);
-        }
-    }
+    
     void SlowDown()
     {
         GetComponent<Movement>().velocity = GetComponent<Movement>().velocity * 1.05f;
