@@ -3063,7 +3063,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &1588813407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3076,8 +3076,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4ea9faa268518846930ea0af16d957a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: 12
-  mouseSensitivity: 120
+  velocity: 120
+  mouseSensitivity: 400
 --- !u!114 &1588813408
 MonoBehaviour:
   m_ObjectHideFlags: 0
