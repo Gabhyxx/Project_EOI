@@ -6,10 +6,12 @@ public class Movement : MonoBehaviour
 {
     public float velocity = 12f;
     public int mouseSensitivity = 120;
+    Rigidbody rig;
 
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        rig = GetComponent<Rigidbody>();
     }
 
 
@@ -27,7 +29,8 @@ public class Movement : MonoBehaviour
 
         if (movement != Vector3.zero)
         {
-            transform.Translate(movement * velocity * Time.deltaTime, Space.World);
+            rig.velocity = movement * velocity* Time.deltaTime + Vector3.up * rig.velocity.y;
+            //transform.Translate(movement * velocity * Time.deltaTime, Space.World);
         }
 
         // Rotación con ratón
