@@ -85,8 +85,18 @@ public class zombieController : MonoBehaviour
     public void Shoot()
     {
         transform.LookAt(player);
-        GameObject newProjectile = Instantiate(projectile, shootPoint.position, shootPoint.rotation);
-        newProjectile.GetComponent<Rigidbody>().AddForce(shootPoint.forward * shootForce);
+        GameObject newProjectile = Instantiate(projectile, new Vector3(shootPoint.position.x - 0.5f, shootPoint.position.y, shootPoint.position.z), shootPoint.rotation);
+        if (Vector3.Distance(transform.position, player.position) > 6f)
+        {
+            newProjectile.GetComponent<Rigidbody>().AddForce(shootPoint.forward * shootForce);
+        }
+        else if (Vector3.Distance(transform.position, player.position) > 4f)
+        {
+            newProjectile.GetComponent<Rigidbody>().AddForce(shootPoint.forward * shootForce / 1.5f);
+        }
+        {
+            newProjectile.GetComponent<Rigidbody>().AddForce(shootPoint.forward * shootForce/2);
+        }
         timeLastShoot = Time.time;
     }
 
@@ -159,7 +169,17 @@ public class zombieController : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, alertRange);
+
+        
+        if (canShoot)
+            Gizmos.color = Color.blue;
+            Gizmos.DrawWireSphere(transform.position, attackRange);
+        
+        if (!canShoot)
+            Gizmos.color = Color.black;
+            Gizmos.DrawWireSphere(transform.position, attackRange);
     }
+
 
 
 }

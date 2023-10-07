@@ -49,13 +49,15 @@ public class zombieExplode : MonoBehaviour
         yield return shakeCoroutine;
 
 
-        Instantiate(explosionParticles, transform.position, Quaternion.identity);
+        ParticleSystem explossionEffect = Instantiate(explosionParticles, transform.position, Quaternion.identity);
 
         //hacer daño al jugador
 
         Destroy(gameObject);
 
     }
+
+ 
     private IEnumerator SimpleShakeCoroutine()
     {
         Vector3 initialPosition = transform.localPosition;
