@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - PushHitbox
   - Spittle
+  - Sounds
+  - Music
   layers:
   - Default
   - TransparentFX

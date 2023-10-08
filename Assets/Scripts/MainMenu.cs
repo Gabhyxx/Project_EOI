@@ -14,6 +14,8 @@ public class MainMenu : MonoBehaviour
     public GameObject menuScreen;
     public GameObject optionsScreen;
 
+    public AudioSource clickAudio;
+
     private void OnEnable()
     {
         newGameButton.onClick.AddListener(() => ButtonCallBack(newGameButton));
@@ -23,9 +25,14 @@ public class MainMenu : MonoBehaviour
     }
     private void ButtonCallBack(Button buttonPressed)
     {
+        if (buttonPressed)
+        {
+            clickAudio.Play();
+        }
+
         if (buttonPressed == newGameButton)
         {
-            SceneManager.LoadScene("MallLevel", LoadSceneMode.Single);
+            SceneManager.LoadScene("AllLevel", LoadSceneMode.Single);
         }
         if (buttonPressed == loadGameButton)
         {

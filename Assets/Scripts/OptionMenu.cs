@@ -7,6 +7,8 @@ using UnityEngine.WSA;
 
 public class OptionMenu : MonoBehaviour
 {
+    public static OptionMenu instance;
+
     public Button musicDownButton;
     public Button musicUpButton;
     public Button soundDownButton;
@@ -22,30 +24,36 @@ public class OptionMenu : MonoBehaviour
     public int soundVol;
     public int sensivility;
 
+    
 
     [Header("Sonidos de menu")]
     [SerializeField] AudioSource menuMusic;
-    [SerializeField] AudioSource snd_opcion;
-    [SerializeField] AudioSource snd_seleccion;
+    public AudioSource clickAudio;
 
     [Header("Sprites de Opciones")]
-    [SerializeField] Sprite musica_on;
-    [SerializeField] Sprite musica_off;
-    [SerializeField] Sprite sonido_on;
-    [SerializeField] Sprite sonido_off;
-    [SerializeField] Sprite volver_on;
-    [SerializeField] Sprite volver_off;
-    [SerializeField] Sprite vol_on;
-    [SerializeField] Sprite vol_off;
-    [SerializeField] SpriteRenderer[] musica_spr;
-    [SerializeField] SpriteRenderer[] sonido_spr;
+    [SerializeField] Texture[] music_spr;
+    [SerializeField] Texture[] sound_spr;
+    [SerializeField] Texture[] sensivility_spr;
+    public RawImage actualMusicImage;
+    public RawImage actualSoundImage;
+    public RawImage actualSensivilityImage;
 
-    GameObject[] sonidos;
+
+    void Awake()
+    {
+        instance = this;
+    }
 
     private void Start()
     {
-        sonidos = GameObject.FindGameObjectsWithTag("Sonidos");
-        
+
+        menuMusic.volume = musicVol / 40f;
+
+        GameObject[] sonidos = GameObject.FindGameObjectsWithTag("Sounds");
+        foreach (GameObject sonido in sonidos)
+        {
+            sonido.GetComponent<AudioSource>().volume = soundVol / 10f;
+        }
     }
 
     private void OnEnable()
@@ -64,13 +72,26 @@ public class OptionMenu : MonoBehaviour
     }
     private void ButtonCallBack(Button buttonPressed)
     {
+        if (buttonPressed) {
+            clickAudio.Play();
+        }
 
         if (buttonPressed == musicDownButton)
         {
+            
             if (musicVol > 0)
             {
                 musicVol--;
-                menuMusic.volume = musicVol / 10f;
+                menuMusic.volume = musicVol / 40f;
+
+                GameObject[] musics = GameObject.FindGameObjectsWithTag("Music");
+
+                foreach (GameObject music in musics)
+                {
+                    music.GetComponent<AudioSource>().volume = musicVol / 20f;
+                }
+
+                actualMusicImage.texture = music_spr[musicVol];
             }
         }
         if (buttonPressed == musicUpButton)
@@ -78,7 +99,15 @@ public class OptionMenu : MonoBehaviour
             if (musicVol < 10)
             {
                 musicVol++;
-                menuMusic.volume = musicVol / 10f;
+
+                GameObject[] musics = GameObject.FindGameObjectsWithTag("Music");
+
+                foreach (GameObject music in musics)
+                {
+                    music.GetComponent<AudioSource>().volume = musicVol / 20f;
+                }
+
+                actualMusicImage.texture = music_spr[musicVol];
             }
         }
 
@@ -87,10 +116,15 @@ public class OptionMenu : MonoBehaviour
             if (soundVol > 0)
             {
                 soundVol--;
-                foreach (GameObject sonido in sonidos)
+                
+                GameObject[] sounds = GameObject.FindGameObjectsWithTag("Sounds");
+
+                foreach (GameObject sound in sounds)
                 {
-                    sonido.GetComponent<AudioSource>().volume = soundVol / 10f;
+                    sound.GetComponent<AudioSource>().volume = soundVol / 10f;
                 }
+
+                actualSoundImage.texture = sound_spr[soundVol];
             }
 
         }
@@ -99,25 +133,31 @@ public class OptionMenu : MonoBehaviour
             if (soundVol < 10)
             {
                 soundVol++;
+
+                GameObject[] sonidos = GameObject.FindGameObjectsWithTag("Sounds");
+
                 foreach (GameObject sonido in sonidos)
                 {
                     sonido.GetComponent<AudioSource>().volume = soundVol / 10f;
                 }
+                actualSoundImage.texture = sound_spr[soundVol];
             }
         }
 
         if (buttonPressed == sensivilityDownButton)
         {
-            if (sensivility > 0)
+            if (sensivility > 100)
             {
-                sensivility--;
+                sensivility -= 5;
+                actualSensivilityImage.texture = sensivility_spr[sensivility/5 - 20];
             }
         }
         if (buttonPressed == sensivilityUpButton)
         {
-            if (sensivility < 10)
+            if (sensivility < 150)
             {
-                sensivility++;
+                sensivility += 5;
+                actualSensivilityImage.texture = sensivility_spr[sensivility / 5 - 20];
             }
         }
         if (buttonPressed == returnGameButton)

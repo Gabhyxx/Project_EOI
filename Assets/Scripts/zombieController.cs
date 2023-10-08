@@ -184,7 +184,7 @@ public class zombieController : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("bullet")){
-            int damage = 50;
+            //int damage = 50;
             //if getHurt(damage);
         }
     }

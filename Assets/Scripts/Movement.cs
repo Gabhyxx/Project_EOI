@@ -5,13 +5,14 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     public float velocity = 12f;
-    public int mouseSensitivity = 120;
+    public int mouseSensitivity ;
     Rigidbody rig;
 
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         rig = GetComponent<Rigidbody>();
+        mouseSensitivity = OptionMenu.instance.sensivility;
     }
 
 
