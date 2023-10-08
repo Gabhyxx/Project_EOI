@@ -3,27 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.WSA;
 
 public class MainMenu : MonoBehaviour
 {
     public Button newGameButton;
     public Button loadGameButton;
+    public Button optionGameButton;
     public Button exitGameButton;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject menuScreen;
+    public GameObject optionsScreen;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     private void OnEnable()
     {
         newGameButton.onClick.AddListener(() => ButtonCallBack(newGameButton));
         loadGameButton.onClick.AddListener(() => ButtonCallBack(loadGameButton));
+        optionGameButton.onClick.AddListener(() => ButtonCallBack(optionGameButton));
         exitGameButton.onClick.AddListener(() => ButtonCallBack(exitGameButton));
     }
     private void ButtonCallBack(Button buttonPressed)
@@ -36,9 +31,14 @@ public class MainMenu : MonoBehaviour
         {
             SceneManager.LoadScene("MallLevel", LoadSceneMode.Single);
         }
+        if (buttonPressed == optionGameButton)
+        {
+            menuScreen.SetActive(false);
+            optionsScreen.SetActive(true);
+        }
         if (buttonPressed == exitGameButton)
         {
-            Application.Quit();
+            UnityEngine.Application.Quit();
         }
     }
 }

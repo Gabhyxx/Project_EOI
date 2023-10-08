@@ -78,6 +78,7 @@ public class zombieController : MonoBehaviour
         agent.velocity = Vector3.zero;
         if (!canShoot)
             anim.SetBool("Attacking", true);
+            
         else if (Time.time > timeLastShoot + cadency)
             anim.Play("roar");
     }
@@ -178,6 +179,14 @@ public class zombieController : MonoBehaviour
         if (!canShoot)
             Gizmos.color = Color.black;
             Gizmos.DrawWireSphere(transform.position, attackRange);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("bullet")){
+            int damage = 50;
+            //if getHurt(damage);
+        }
     }
 
 

@@ -55,6 +55,23 @@ public class zombieExplode : MonoBehaviour
 
         Destroy(gameObject);
 
+        
+
+        Vector3 direction = (player.position - transform.position).normalized;
+        float distance = Vector3.Distance(transform.position, player.position);
+
+        RaycastHit hitInfo;
+
+        if (Physics.Raycast(transform.position, direction, out hitInfo, distance, ~LayerMask.GetMask("Trigger"), QueryTriggerInteraction.Ignore))
+        {
+            // Si el rayo golpea al player devuelve true
+            if (hitInfo.collider.CompareTag("Player") && distance < explosionRange)
+            {
+                Debug.Log("Bien");
+            }
+        }
+
+
     }
 
  
