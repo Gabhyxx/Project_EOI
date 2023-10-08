@@ -19,6 +19,9 @@ public class zombieExplode : MonoBehaviour
     public float scaleAmount = 1.1f;
     public float scaleTime = 0.5f;
 
+    public GameObject healthText;
+    public int damage;
+
 
     private void Update()
     {
@@ -67,7 +70,7 @@ public class zombieExplode : MonoBehaviour
             // Si el rayo golpea al player devuelve true
             if (hitInfo.collider.CompareTag("Player") && distance < explosionRange)
             {
-                Debug.Log("Bien");
+                healthText.GetComponent<HealthInfo>().TakeDamage(damage);
             }
         }
 

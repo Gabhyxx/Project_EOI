@@ -7,6 +7,8 @@ public class EnemyProperties : MonoBehaviour
     public GameObject player;
     public GameObject healthText;
     public int damage;
+
+    private bool isDamaged = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,9 +22,11 @@ public class EnemyProperties : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("HitboxPlayer"))
         {
+            healthText = GameObject.Find("HealthText");
             healthText.GetComponent<HealthInfo>().TakeDamage(damage);
+            isDamaged = true;
         }
     }
 }

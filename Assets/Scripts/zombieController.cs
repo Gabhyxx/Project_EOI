@@ -26,6 +26,10 @@ public class zombieController : MonoBehaviour
     public float cadency;
     float timeLastShoot;
 
+    public GameObject healthText;
+    public int bodyDamage;
+    public int timeCounter;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -77,10 +81,24 @@ public class zombieController : MonoBehaviour
     {
         agent.velocity = Vector3.zero;
         if (!canShoot)
+        {
             anim.SetBool("Attacking", true);
-            
+            BodyDamage();
+
+        }
+
         else if (Time.time > timeLastShoot + cadency)
             anim.Play("roar");
+    }
+
+    private void BodyDamage()
+    {
+        if (timeCounter % 120 == 0)
+        {
+            healthText.GetComponent<HealthInfo>().TakeDamage(bodyDamage);
+            timeCounter = 1;
+        }
+        timeCounter++;
     }
 
     public void Shoot()
