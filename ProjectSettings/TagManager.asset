@@ -10,6 +10,7 @@ TagManager:
   - Spittle
   - Sounds
   - Music
+  - HitboxPlayer
   layers:
   - Default
   - TransparentFX

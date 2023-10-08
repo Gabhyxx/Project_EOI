@@ -12,7 +12,8 @@ public class Movement : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         rig = GetComponent<Rigidbody>();
-        mouseSensitivity = OptionMenu.instance.sensivility;
+        mouseSensitivity = 120;
+        //mouseSensitivity = OptionMenu.instance.sensivility;
     }
 
 
