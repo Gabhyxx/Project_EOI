@@ -5,20 +5,15 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public int health;
-    public int pulseGunAmmo;
-    public int submachineGunAmmo;
-    public int lightningRifleAmmo;
-    public int bowAmmo;
+    public int batteries;
     public int epinephrineInjection;
     public int ammo9mm;
-    public int batteryAmmo;
     public int arrowQuiver;
     
     public void SavePlayer()
     {
         float[] position = { GetComponent<Transform>().position.x, GetComponent<Transform>().position.y, GetComponent<Transform>().position.z };
-        PlayerData playerData = new PlayerData(health, pulseGunAmmo, submachineGunAmmo,
-            lightningRifleAmmo, bowAmmo, epinephrineInjection, ammo9mm, batteryAmmo,
+        PlayerData playerData = new PlayerData(health, batteries, epinephrineInjection, ammo9mm,
             arrowQuiver, position);
         SaveSystem.SavePlayer(playerData);
     }
@@ -27,13 +22,9 @@ public class Player : MonoBehaviour
         PlayerData data = SaveSystem.LoadPlayer();
 
         health = data.health;
-        pulseGunAmmo = data.pulseGunAmmo;
-        submachineGunAmmo = data.submachineGunAmmo;
-        lightningRifleAmmo = data.lightningRifleAmmo;
-        bowAmmo = data.bowAmmo;
+        batteries = data.batteries;
         epinephrineInjection = data.epinephrineInjection;
         ammo9mm = data.ammo9mm;
-        batteryAmmo = data.batteryAmmo;
         arrowQuiver = data.arrowQuiver;
 
         Vector3 position;

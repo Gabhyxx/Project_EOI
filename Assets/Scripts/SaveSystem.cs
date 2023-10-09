@@ -11,9 +11,8 @@ public static class SaveSystem
         FileStream stream = new FileStream(path, FileMode.Create);
 
         float[] position = { player.position[0], player.position[1], player.position[2] };
-        PlayerData data = new PlayerData(player.health, player.pulseGunAmmo, player.submachineGunAmmo,
-            player.lightningRifleAmmo, player.bowAmmo, player.epinephrineInjection, player.ammo9mm,
-            player.batteryAmmo, player.arrowQuiver, position);
+        PlayerData data = new PlayerData(player.health, player.batteries,
+            player.epinephrineInjection, player.ammo9mm, player.arrowQuiver, position);
 
         formatter.Serialize(stream, data);
         stream.Close();
