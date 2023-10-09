@@ -6,8 +6,9 @@ using UnityEngine.UI;
 public class Pause : MonoBehaviour
 {
     public GameObject pauseScreen;
+    public GameObject hud;
     public Button resumeButton;
-    public Button exitButton;
+    public Button mainMenuButton;
     void Start()
     {
         pauseScreen.SetActive(false);
@@ -22,9 +23,7 @@ public class Pause : MonoBehaviour
         }
         else if ((Input.GetButtonDown("Cancel")) && pauseScreen.activeSelf)
         {
-            pauseScreen.SetActive(false);
-            Time.timeScale = 1;
-            Cursor.lockState = CursorLockMode.Locked;
+            PauseGame();
         }
     }
     private void PauseGame()
@@ -34,11 +33,13 @@ public class Pause : MonoBehaviour
             pauseScreen.SetActive(true);
             Time.timeScale = 0;
             Cursor.lockState = CursorLockMode.None;
+            hud.SetActive(false);
         } else if (pauseScreen.activeSelf && Time.timeScale == 0)
         {
             pauseScreen.SetActive(false);
             Time.timeScale = 1;
             Cursor.lockState = CursorLockMode.Locked;
+            hud.SetActive(true);
         }
     }
     private void OnEnable()
@@ -53,6 +54,7 @@ public class Pause : MonoBehaviour
             pauseScreen.SetActive(false);
             Time.timeScale = 1;
             Cursor.lockState = CursorLockMode.Locked;
+            hud.SetActive(true);
         }
     }
 }

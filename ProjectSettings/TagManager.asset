@@ -4,16 +4,22 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Damage
   - Enemy
+  - PushHitbox
+  - Spittle
+  - Sounds
+  - Music
+  - HitboxPlayer
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Projectile
+  - Player
   - Water
   - UI
-  - 
-  - 
+  - Enemy
+  - Push
   - 
   - 
   - 
