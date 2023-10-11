@@ -23,7 +23,7 @@ public class ProjectileWeapon : MonoBehaviour
     {
         if(Time.time > timeLastShoot + cadency)
         {
-            cloneProjectile = Instantiate(pistolProjectile, shootingTransform.position, shootingTransform.localRotation);
+            cloneProjectile = Instantiate(pistolProjectile, shootingTransform.position, shootingTransform.rotation);
             cloneProjectile.GetComponent<Rigidbody>().AddForce(transform.forward * projectileForce);
             Destroy(cloneProjectile, destroyTime);
             timeLastShoot = Time.time;

@@ -21,6 +21,7 @@ public class BowWeapon : MonoBehaviour
     {
         if(Time.time > timeLastShoot + cadency)
         {
+        
             GameObject cloneArrow = Instantiate(arrowPrefab, arrowInstantiatePoint.position, Camera.main.transform.rotation);
             cloneArrow.GetComponent<Rigidbody>().AddForce(Camera.main.transform.forward * arrowForce);
 
