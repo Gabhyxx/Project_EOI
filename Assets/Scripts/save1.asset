@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25e565db296645f41862c5b5e8a2b1bc, type: 3}
+  m_Name: save1
+  m_EditorClassIdentifier: 
+  health: 1
+  batteries: 1
+  epinephrineInjection: 1
+  ammo9mm: 1
+  arrowQuiver: 1
+  position: {x: 1, y: 1, z: 1}

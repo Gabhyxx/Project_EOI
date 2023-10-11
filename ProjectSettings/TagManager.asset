@@ -11,6 +11,7 @@ TagManager:
   - Sounds
   - Music
   - HitboxPlayer
+  - Bullet
   layers:
   - Default
   - TransparentFX

@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 1365413229177708261}
   m_Layer: 0
   m_Name: Pistol_Projectile
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -241,6 +241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e7a854b671dccb4586075f1c56000df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 10
 --- !u!1 &8345712665385547241
 GameObject:
   m_ObjectHideFlags: 0

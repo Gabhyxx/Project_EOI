@@ -15,7 +15,7 @@ public class HeartbeatScroll : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetComponent<MeshRenderer>().material.mainTextureOffset = new Vector2(Time.time, 0);
+        GetComponent<RawImage>().material.mainTextureOffset = new Vector2(Time.time, 0);
         //transform.Translate(Vector3.left * speed);
     }
 }

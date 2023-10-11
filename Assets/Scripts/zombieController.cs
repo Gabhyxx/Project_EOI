@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class zombieController : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class zombieController : MonoBehaviour
     NavMeshAgent agent;
     Animator anim;
 
-    public int health = 100;
+    public float health = 100;
 
     [Header("Shoot")]
     public GameObject projectile;
@@ -29,11 +30,14 @@ public class zombieController : MonoBehaviour
     public GameObject healthText;
     public int bodyDamage;
     public int timeCounter;
+    public Slider sliderHealth;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
+        sliderHealth.maxValue = health;
+        sliderHealth.gameObject.SetActive(false);
 
     }
     void Update()
@@ -41,7 +45,7 @@ public class zombieController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.R))
         {
-            getHurt(120);
+            GetHurt(120);
         }
         else if (health > 0)
         { //Chequea Estado
@@ -119,13 +123,14 @@ public class zombieController : MonoBehaviour
         timeLastShoot = Time.time;
     }
 
-    public void getHurt(int damage)
+    public void GetHurt(float damage)
     {
         if (health > 0)
         {
             //Enemigo sufre daño
-
+            sliderHealth.gameObject.SetActive(true);
             health -= damage;
+            sliderHealth.value = health;
             StartCoroutine(ResetHurtState());
         }
     }
@@ -141,6 +146,7 @@ public class zombieController : MonoBehaviour
         //Enemigo muere
         if (health <= 0)
         {
+            sliderHealth.gameObject.SetActive(false);
             bool randomDead = UnityEngine.Random.Range(0, 2) == 0;
             if (randomDead)
             {
@@ -201,9 +207,9 @@ public class zombieController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("bullet")){
-            //int damage = 50;
-            //if getHurt(damage);
+        if (other.CompareTag("Bullet"))
+        {
+            GetHurt(other.gameObject.GetComponent<ProjectileBullet>().damage);
         }
     }
 
