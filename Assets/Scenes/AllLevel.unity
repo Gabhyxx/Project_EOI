@@ -1836,6 +1836,14 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1588813400}
+    - target: {fileID: 2383792151481397605, guid: 54ac3fbc0d1ad5c45852b6ae4c2a39f4, type: 3}
+      propertyPath: pistol
+      value: 
+      objectReference: {fileID: 41415767}
+    - target: {fileID: 2383792151481397605, guid: 54ac3fbc0d1ad5c45852b6ae4c2a39f4, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1588813400}
     - target: {fileID: 3549417212519608325, guid: 54ac3fbc0d1ad5c45852b6ae4c2a39f4, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
