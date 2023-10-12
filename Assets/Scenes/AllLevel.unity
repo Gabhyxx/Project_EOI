@@ -208,14 +208,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 4041984387026293456}
     m_Modifications:
     - target: {fileID: 3121999506193720776, guid: 60afaff7beab63a4fa1dad9f00e43a4a, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3121999506193720776, guid: 60afaff7beab63a4fa1dad9f00e43a4a, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3121999506193720776, guid: 60afaff7beab63a4fa1dad9f00e43a4a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.199
       objectReference: {fileID: 0}
@@ -255,17 +247,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3739314244485943367, guid: 60afaff7beab63a4fa1dad9f00e43a4a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3769829208399233768, guid: 60afaff7beab63a4fa1dad9f00e43a4a, type: 3}
       propertyPath: m_Name
       value: WeaponPivot
-      objectReference: {fileID: 0}
-    - target: {fileID: 8693083204130301481, guid: 60afaff7beab63a4fa1dad9f00e43a4a, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
