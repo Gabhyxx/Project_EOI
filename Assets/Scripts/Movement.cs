@@ -6,7 +6,11 @@ public class Movement : MonoBehaviour
 {
     public float velocity = 12f;
     public int mouseSensitivity ;
-    Rigidbody rig;
+    public int dashForce;
+    public int timeToDash;
+
+    private bool canDash = true;
+    private Rigidbody rig;
 
     void Start()
     {
@@ -16,10 +20,15 @@ public class Movement : MonoBehaviour
         //mouseSensitivity = OptionMenu.instance.sensivility;
     }
 
+    private void Update()
+    {
+        Move();
+    }
 
     void FixedUpdate()
     {
-        Move();
+        
+        
     }
 
     private void Move()
@@ -33,11 +42,30 @@ public class Movement : MonoBehaviour
         {
             rig.velocity = movement * velocity* Time.deltaTime + Vector3.up * rig.velocity.y;
             //transform.Translate(movement * velocity * Time.deltaTime, Space.World);
+            if (Input.GetKeyDown(KeyCode.C) && canDash)
+            {
+                Dash();
+            }
         }
 
         // Rotación con ratón
         float movementMouseHorizontal = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
 
         transform.Rotate(Vector3.up * movementMouseHorizontal, Space.World);
+    }
+
+    private void Dash()
+    {
+        canDash = false;
+        rig.velocity = Vector3.zero;
+        rig.AddForce(transform.forward * dashForce, ForceMode.Impulse);
+        rig.velocity = Vector3.zero; 
+        StartCoroutine(ResetDashCooldown());
+    }
+
+    private IEnumerator ResetDashCooldown()
+    {
+        yield return new WaitForSeconds(timeToDash);
+        canDash = true;
     }
 }
