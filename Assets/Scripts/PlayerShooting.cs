@@ -13,6 +13,11 @@ public class PlayerShooting : MonoBehaviour
     public GameObject[] weapon;
     WeaponProp weaponProp;
 
+    public int GetCurrentWeapon()
+    {
+        return currentWeapon;
+    }
+
     void Update()
     {
         if (Input.GetMouseButton(0))
