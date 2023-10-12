@@ -42,7 +42,7 @@ public class Movement : MonoBehaviour
         {
             rig.velocity = movement * velocity* Time.deltaTime + Vector3.up * rig.velocity.y;
             //transform.Translate(movement * velocity * Time.deltaTime, Space.World);
-            if (Input.GetKeyDown(KeyCode.C) && canDash)
+            if (Input.GetKeyDown(KeyCode.Space) && canDash)
             {
                 Dash();
             }
