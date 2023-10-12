@@ -57,11 +57,13 @@ public class zombieController : MonoBehaviour
     {
         //detecta Cercania
         isHunting = Physics.CheckSphere(transform.position, alertRange, playerMask);
+        if (isHunting) Debug.Log("Te puedo oler");
         float distance = Vector3.Distance(transform.position, player.position);
 
         // El enemigo te sigue
         if (isHunting && VisionLine())
         {
+            Debug.Log("Voy a por ti");
             anim.SetBool("Hunting", true);
             anim.SetFloat("velocity",agent.velocity.magnitude);
 
@@ -79,6 +81,30 @@ public class zombieController : MonoBehaviour
         {
             anim.SetBool("Hunting", false);
         }
+    }
+
+    bool VisionLine()
+    {
+
+        
+        Vector3 direction = (player.position - transform.position).normalized;
+        float distance = Vector3.Distance(transform.position, player.position);
+
+        RaycastHit hitInfo;
+
+        // Lanza un rayo desde la posición del enemigo en la dirección del objetivo
+        if (Physics.Raycast(transform.position, direction, out hitInfo, distance, ~LayerMask.GetMask("Trigger"), QueryTriggerInteraction.Ignore))
+        {
+            // Si el rayo golpea al player devuelve true
+            if (hitInfo.collider.CompareTag("Player"))
+            {
+                Debug.Log("Te puedo Ver");
+                return true;
+            }
+        }
+
+        Debug.Log("No te puedo ver");
+        return false;
     }
 
     private void Attacking()
@@ -168,26 +194,6 @@ public class zombieController : MonoBehaviour
             }
             Destroy(gameObject);
         }
-    }
-
-    bool VisionLine()
-    {
-        Vector3 direction = (player.position - transform.position).normalized;
-        float distance = Vector3.Distance(transform.position, player.position);
-
-        RaycastHit hitInfo;
-
-        // Lanza un rayo desde la posición del enemigo en la dirección del objetivo
-        if (Physics.Raycast(transform.position, direction, out hitInfo, distance, ~LayerMask.GetMask("Trigger"), QueryTriggerInteraction.Ignore))
-        {
-            // Si el rayo golpea al player devuelve true
-            if (hitInfo.collider.CompareTag("Player"))
-            {
-                return true;
-            }
-        }
-
-        return false;
     }
 
     private void OnDrawGizmos()
