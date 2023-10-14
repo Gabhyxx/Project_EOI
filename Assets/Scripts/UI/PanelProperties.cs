@@ -10,7 +10,7 @@ public class PanelProperties : MonoBehaviour
     void Start()
     {
         panel = GetComponent<Image>();
-        panel.color = Color.black;
+        panel.color = new Color(0.3686f, 0.4549f, 0.3686f, 0.8314f);
     }
 
 }

@@ -16,11 +16,17 @@ public class zombieExplode : MonoBehaviour
     public float shakeSpeed;
 
     public AnimationCurve scaleCurve = AnimationCurve.EaseInOut(0f,0f,1f,1f);
-    public float scaleAmount = 1.1f;
-    public float scaleTime = 0.5f;
+    public float scaleAmount;
+    public float scaleTime;
 
     public GameObject healthText;
     public int damage;
+
+    public float timeCounter;
+    public int bodyDamage;
+
+    public AudioSource alarmSound;
+    public AudioSource explosionSound;
 
 
     private void Update()
@@ -30,8 +36,29 @@ public class zombieExplode : MonoBehaviour
         }
     }
 
+    bool canExplode()
+    {
+        Vector3 direction = (player.position - transform.position).normalized;
+        float distance = Vector3.Distance(transform.position, player.position);
+
+        RaycastHit hitInfo;
+
+        // Lanza un rayo desde la posición del enemigo en la dirección del objetivo
+        if (Physics.Raycast(transform.position, direction, out hitInfo, distance, ~LayerMask.GetMask("Trigger"), QueryTriggerInteraction.Ignore))
+        {
+            // Si el rayo golpea al player devuelve true
+            if (hitInfo.collider.CompareTag("HitboxPlayer") && distance < explosionRange)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     private void Explode()
     {
+        if (!alarmSound.isPlaying) alarmSound.Play();
         StartCoroutine(ExplosionCoroutine());
 
     }
@@ -54,12 +81,10 @@ public class zombieExplode : MonoBehaviour
 
         ParticleSystem explossionEffect = Instantiate(explosionParticles, transform.position, Quaternion.identity);
 
-        //hacer daño al jugador
-
         Destroy(gameObject);
 
-        
 
+        //hacer daño al jugador
         Vector3 direction = (player.position - transform.position).normalized;
         float distance = Vector3.Distance(transform.position, player.position);
 
@@ -68,13 +93,11 @@ public class zombieExplode : MonoBehaviour
         if (Physics.Raycast(transform.position, direction, out hitInfo, distance, ~LayerMask.GetMask("Trigger"), QueryTriggerInteraction.Ignore))
         {
             // Si el rayo golpea al player devuelve true
-            if (hitInfo.collider.CompareTag("Player") && distance < explosionRange)
+            if (hitInfo.collider.CompareTag("HitboxPlayer") && distance < explosionRange)
             {
                 healthText.GetComponent<HealthInfo>().TakeDamage(damage);
             }
         }
-
-
     }
 
  
@@ -87,28 +110,10 @@ public class zombieExplode : MonoBehaviour
             transform.localPosition = initialPosition + randomPoint;
             yield return null;
         }
+        alarmSound.Stop();
+        explosionSound.Play();
+
         transform.localPosition = initialPosition;
-    }
-
-
-    bool canExplode()
-    {
-        Vector3 direction = (player.position - transform.position).normalized;
-        float distance = Vector3.Distance(transform.position, player.position);
-
-        RaycastHit hitInfo;
-
-        // Lanza un rayo desde la posición del enemigo en la dirección del objetivo
-        if (Physics.Raycast(transform.position, direction, out hitInfo, distance, ~LayerMask.GetMask("Trigger"), QueryTriggerInteraction.Ignore))
-        {
-            // Si el rayo golpea al player devuelve true
-            if (hitInfo.collider.CompareTag("Player") && distance<explosionRange)
-            {
-                return true;
-            }
-        }
-
-        return false;
     }
 
     private void OnDrawGizmos()

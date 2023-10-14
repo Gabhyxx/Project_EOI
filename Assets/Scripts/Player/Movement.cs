@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
+    public static Movement instance;
+
     public float velocity = 12f;
     public int mouseSensitivity ;
     public int dashForce;
@@ -12,23 +14,20 @@ public class Movement : MonoBehaviour
     private bool canDash = true;
     private Rigidbody rig;
 
+    private void Awake()
+    {
+        instance = this;
+    }
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         rig = GetComponent<Rigidbody>();
-        mouseSensitivity = 120;
-        //mouseSensitivity = OptionMenu.instance.sensivility;
+        mouseSensitivity = OptionMenu.instance.sensivility;
     }
 
     private void Update()
     {
         Move();
-    }
-
-    void FixedUpdate()
-    {
-        
-        
     }
 
     private void Move()

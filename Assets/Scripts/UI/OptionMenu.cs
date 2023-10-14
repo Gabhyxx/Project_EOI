@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using UnityEngine.WSA;
+//using UnityEngine.WSA;
 
 public class OptionMenu : MonoBehaviour
 {
@@ -24,10 +25,10 @@ public class OptionMenu : MonoBehaviour
     public int soundVol;
     public int sensivility;
 
-    
+
 
     [Header("Sonidos de menu")]
-    [SerializeField] AudioSource menuMusic;
+    [SerializeField] AudioMixer mixer;
     public AudioSource clickAudio;
 
     [Header("Sprites de Opciones")]
@@ -42,18 +43,7 @@ public class OptionMenu : MonoBehaviour
     void Awake()
     {
         instance = this;
-    }
-
-    private void Start()
-    {
-
-        menuMusic.volume = musicVol / 40f;
-
-        GameObject[] sonidos = GameObject.FindGameObjectsWithTag("Sounds");
-        foreach (GameObject sonido in sonidos)
-        {
-            sonido.GetComponent<AudioSource>().volume = soundVol / 10f;
-        }
+        Time.timeScale = 1;
     }
 
     private void OnEnable()
@@ -72,23 +62,21 @@ public class OptionMenu : MonoBehaviour
     }
     private void ButtonCallBack(Button buttonPressed)
     {
-        if (buttonPressed) {
+        if (buttonPressed)
+        {
             clickAudio.Play();
         }
 
         if (buttonPressed == musicDownButton)
         {
-            
+
             if (musicVol > 0)
             {
-                musicVol--;
-                menuMusic.volume = musicVol / 40f;
-
-                GameObject[] musics = GameObject.FindGameObjectsWithTag("Music");
-
-                foreach (GameObject music in musics)
+                musicVol --;
+                mixer.SetFloat("volumeMusic", (musicVol - 5) * 4);
+                if (musicVol == 0)
                 {
-                    music.GetComponent<AudioSource>().volume = musicVol / 20f;
+                    mixer.SetFloat("volumeMusic", -80);
                 }
 
                 actualMusicImage.texture = music_spr[musicVol];
@@ -98,15 +86,8 @@ public class OptionMenu : MonoBehaviour
         {
             if (musicVol < 10)
             {
-                musicVol++;
-
-                GameObject[] musics = GameObject.FindGameObjectsWithTag("Music");
-
-                foreach (GameObject music in musics)
-                {
-                    music.GetComponent<AudioSource>().volume = musicVol / 20f;
-                }
-
+                musicVol ++ ;
+                mixer.SetFloat("volumeMusic", (musicVol-5)*4);
                 actualMusicImage.texture = music_spr[musicVol];
             }
         }
@@ -116,12 +97,10 @@ public class OptionMenu : MonoBehaviour
             if (soundVol > 0)
             {
                 soundVol--;
-                
-                GameObject[] sounds = GameObject.FindGameObjectsWithTag("Sounds");
-
-                foreach (GameObject sound in sounds)
+                mixer.SetFloat("volumeSfx", (soundVol - 5) * 4);
+                if (soundVol == 0)
                 {
-                    sound.GetComponent<AudioSource>().volume = soundVol / 10f;
+                    mixer.SetFloat("volumeSfx", -80);
                 }
 
                 actualSoundImage.texture = sound_spr[soundVol];
@@ -133,13 +112,7 @@ public class OptionMenu : MonoBehaviour
             if (soundVol < 10)
             {
                 soundVol++;
-
-                GameObject[] sonidos = GameObject.FindGameObjectsWithTag("Sounds");
-
-                foreach (GameObject sonido in sonidos)
-                {
-                    sonido.GetComponent<AudioSource>().volume = soundVol / 10f;
-                }
+                mixer.SetFloat("volumeSfx", (soundVol - 5) * 4);
                 actualSoundImage.texture = sound_spr[soundVol];
             }
         }
@@ -149,7 +122,8 @@ public class OptionMenu : MonoBehaviour
             if (sensivility > 100)
             {
                 sensivility -= 5;
-                actualSensivilityImage.texture = sensivility_spr[sensivility/5 - 20];
+                actualSensivilityImage.texture = sensivility_spr[sensivility / 5 - 20];
+                Movement.instance.mouseSensitivity = sensivility;
             }
         }
         if (buttonPressed == sensivilityUpButton)
@@ -158,12 +132,14 @@ public class OptionMenu : MonoBehaviour
             {
                 sensivility += 5;
                 actualSensivilityImage.texture = sensivility_spr[sensivility / 5 - 20];
+                Movement.instance.mouseSensitivity = sensivility;
             }
         }
         if (buttonPressed == returnGameButton)
         {
             optionsScreen.SetActive(false);
             menuScreen.SetActive(true);
+            
         }
 
     }
