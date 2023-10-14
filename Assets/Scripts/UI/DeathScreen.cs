@@ -28,8 +28,8 @@ public class DeathScreen : MonoBehaviour
     {
         deathScreen.SetActive(true);
         GetComponent<Movement>().enabled = false;
-        GetComponent<Pause>().enabled = false;
-        Invoke("ToMainMenu", 5);
+        Invoke("ToMainMenu",5);
+        Time.timeScale = 0;
     }
 
     private void ToMainMenu()

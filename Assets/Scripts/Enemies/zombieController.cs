@@ -63,6 +63,7 @@ public class zombieController : MonoBehaviour
             anim.SetBool("Hunting", true);
             anim.SetFloat("velocity",agent.velocity.magnitude);
 
+            if(agent.enabled)
             agent.destination = player.position;
 
             if (Vector3.Distance(transform.position, player.position) <= attackRange)
