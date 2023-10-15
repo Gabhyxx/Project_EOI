@@ -13,11 +13,16 @@ public class ProjectileWeapon : MonoBehaviour
     public float cadency;
     public int chargedAmmo = 20;
     public int maxAmmo = 20;
+    public Animator recoilAnim;
     //Variables Privadas
     GameObject cloneProjectile;
     float timeLastShoot;
     int timePassed = 0;
 
+    private void Awake()
+    {
+        recoilAnim = GetComponent<Animator>();
+    }
     private void Start()
     {
         cadency = 60 / cadency;
@@ -30,6 +35,7 @@ public class ProjectileWeapon : MonoBehaviour
         {
             CancelInvoke();
         }
+        Animating();
     }
     public void ProjectileCreation()
     {
@@ -51,6 +57,17 @@ public class ProjectileWeapon : MonoBehaviour
         if(chargedAmmo < maxAmmo && timePassed % 15f == 0)
         {
             chargedAmmo++;
+        }
+    }
+    
+    void Animating()
+    {
+        if (Input.GetMouseButton(0))
+        {
+            recoilAnim.SetBool("IsShooting", true);
+        } else
+        {
+            recoilAnim.SetBool("IsShooting", false);
         }
     }
 }

@@ -343,6 +343,7 @@ GameObject:
   - component: {fileID: 5551076107743555267}
   - component: {fileID: 3804682006385194462}
   - component: {fileID: 8644090723276538621}
+  - component: {fileID: 2104415521185971247}
   m_Layer: 0
   m_Name: Pistol
   m_TagString: Untagged
@@ -394,6 +395,8 @@ MonoBehaviour:
   pistolProjectile: {fileID: 1077199642986606543, guid: 30eae3f2132c4764f986e798840cdd10, type: 3}
   shootingTransform: {fileID: 6515449274652228361}
   cadency: 200
+  chargedAmmo: 20
+  maxAmmo: 20
 --- !u!65 &8644090723276538621
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -415,6 +418,27 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.15554011, y: 0.52302927, z: 0.7847166}
   m_Center: {x: -0.0010582805, y: 0.030489974, z: 0.23016632}
+--- !u!95 &2104415521185971247
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2649934558671489175}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9697106e8a407cb40a123c10097625f5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2938172920492903847
 GameObject:
   m_ObjectHideFlags: 0
