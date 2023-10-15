@@ -29,11 +29,13 @@ public class DeathScreen : MonoBehaviour
         deathScreen.SetActive(true);
         GetComponent<Movement>().enabled = false;
         Invoke("ToMainMenu",5);
-        Time.timeScale = 0;
+        //Time.timeScale = 0;
     }
 
     private void ToMainMenu()
     {
+        Cursor.lockState = CursorLockMode.None;
+
         SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
     }
 }

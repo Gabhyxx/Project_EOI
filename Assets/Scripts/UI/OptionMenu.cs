@@ -40,10 +40,23 @@ public class OptionMenu : MonoBehaviour
     public RawImage actualSensivilityImage;
 
 
-    void Awake()
+    private void Awake()
     {
         instance = this;
         Time.timeScale = 1;
+
+        // Cargar valores guardados
+        musicVol = PlayerPrefs.GetInt("MusicVolume", 5); // 5 es el valor predeterminado si no hay ninguno guardado
+        soundVol = PlayerPrefs.GetInt("SoundVolume", 5);
+        sensivility = PlayerPrefs.GetInt("Sensitivity", 125);
+        UpdateAudioVisuals(); // Actualizar las imágenes y el mezclador de audio con los valores cargados
+    }
+
+    private void Start()
+    {
+        actualMusicImage.texture = music_spr[musicVol];
+        actualSoundImage.texture = music_spr[soundVol];
+        actualSensivilityImage.texture = music_spr[sensivility / 5 - 20];
     }
 
     private void OnEnable()
@@ -80,6 +93,7 @@ public class OptionMenu : MonoBehaviour
                 }
 
                 actualMusicImage.texture = music_spr[musicVol];
+                PlayerPrefs.SetInt("MusicVolume", musicVol);
             }
         }
         if (buttonPressed == musicUpButton)
@@ -89,6 +103,7 @@ public class OptionMenu : MonoBehaviour
                 musicVol ++ ;
                 mixer.SetFloat("volumeMusic", (musicVol-5)*4);
                 actualMusicImage.texture = music_spr[musicVol];
+                PlayerPrefs.SetInt("MusicVolume", musicVol);
             }
         }
 
@@ -104,6 +119,7 @@ public class OptionMenu : MonoBehaviour
                 }
 
                 actualSoundImage.texture = sound_spr[soundVol];
+                PlayerPrefs.SetInt("SoundVolume", soundVol);
             }
 
         }
@@ -114,6 +130,7 @@ public class OptionMenu : MonoBehaviour
                 soundVol++;
                 mixer.SetFloat("volumeSfx", (soundVol - 5) * 4);
                 actualSoundImage.texture = sound_spr[soundVol];
+                PlayerPrefs.SetInt("SoundVolume", soundVol);
             }
         }
 
@@ -123,7 +140,8 @@ public class OptionMenu : MonoBehaviour
             {
                 sensivility -= 5;
                 actualSensivilityImage.texture = sensivility_spr[sensivility / 5 - 20];
-                Movement.instance.mouseSensitivity = sensivility;
+                if (SceneManager.GetActiveScene().buildIndex != 0) Movement.instance.mouseSensitivity = sensivility;
+                PlayerPrefs.SetInt("Sensivility", sensivility);
             }
         }
         if (buttonPressed == sensivilityUpButton)
@@ -132,7 +150,8 @@ public class OptionMenu : MonoBehaviour
             {
                 sensivility += 5;
                 actualSensivilityImage.texture = sensivility_spr[sensivility / 5 - 20];
-                Movement.instance.mouseSensitivity = sensivility;
+                if (SceneManager.GetActiveScene().buildIndex != 0) Movement.instance.mouseSensitivity = sensivility;
+                PlayerPrefs.SetInt("Sensivility", sensivility);
             }
         }
         if (buttonPressed == returnGameButton)
@@ -143,5 +162,26 @@ public class OptionMenu : MonoBehaviour
         }
 
     }
+
+    private void UpdateAudioVisuals()
+    {
+        mixer.SetFloat("volumeMusic", (musicVol - 5) * 4);
+        mixer.SetFloat("volumeSfx", (soundVol - 5) * 4);
+        actualMusicImage.texture = music_spr[musicVol];
+        actualSoundImage.texture = sound_spr[soundVol];
+        actualSensivilityImage.texture = sensivility_spr[sensivility / 5 - 20];
+        //Movement.instance.mouseSensitivity = sensivility;
+    }
+
+    private void OnDisable()
+    {
+        // Guardar los valores al desactivar el script
+        PlayerPrefs.SetInt("MusicVolume", musicVol);
+        PlayerPrefs.SetInt("SoundVolume", soundVol);
+        PlayerPrefs.SetInt("Sensitivity", sensivility);
+    }
+
+    // ... (resto de tu código) ...
+
 
 }
