@@ -1,12 +1,10 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 
-public class zombieController : MonoBehaviour
+public class bossController : MonoBehaviour
 {
     public Transform player;
 
@@ -18,22 +16,12 @@ public class zombieController : MonoBehaviour
     NavMeshAgent agent;
     Animator anim;
 
-    public float health = 100;
-
-    [Header("Shoot")]
-    public GameObject projectile;
-    public Transform shootPoint;
-    public float shootForce;
-    public float cadency;
-    float timeLastShoot;
+    public float health;
 
     public GameObject healthText;
     public int bodyDamage;
     public int timeCounter;
     public Slider sliderHealth;
-
-    public AudioSource zombieDamage;
-    public AudioSource attackAudio;
 
     void Start()
     {
@@ -45,7 +33,7 @@ public class zombieController : MonoBehaviour
     }
     void Update()
     {
-        if (health > 0 && Time.timeScale == 1)
+        if (health > 0)
         { //Chequea Estado
             checkState();
         }
@@ -61,7 +49,7 @@ public class zombieController : MonoBehaviour
         if (isHunting && VisionLine())
         {
             anim.SetBool("Hunting", true);
-            anim.SetFloat("velocity",agent.velocity.magnitude);
+            anim.SetFloat("velocity", agent.velocity.magnitude);
 
             agent.destination = player.position;
 
@@ -82,7 +70,7 @@ public class zombieController : MonoBehaviour
     bool VisionLine()
     {
 
-        
+
         Vector3 direction = (player.position - transform.position).normalized;
         float distance = Vector3.Distance(transform.position, player.position);
 
@@ -103,7 +91,9 @@ public class zombieController : MonoBehaviour
             {
                 return false;
             }
-        } else {
+        }
+        else
+        {
             return false;
         }
 
@@ -111,51 +101,23 @@ public class zombieController : MonoBehaviour
 
     private void Attacking()
     {
-        
         agent.velocity = Vector3.zero;
         if (!canShoot)
         {
-            if (!attackAudio.isPlaying) attackAudio.Play();
             anim.SetBool("Attacking", true);
             BodyDamage();
 
         }
-
-        else if (Time.time > timeLastShoot + cadency)
-        {
-            if (!attackAudio.isPlaying) attackAudio.Play();
-            anim.Play("roar");
-        }
-            
     }
 
     private void BodyDamage()
     {
-
         if (timeCounter % 120 == 0)
-        {            
+        {
             healthText.GetComponent<HealthInfo>().TakeDamage(bodyDamage);
             timeCounter = 1;
         }
         timeCounter++;
-    }
-
-    public void Shoot()
-    {
-        transform.LookAt(player);
-        GameObject newProjectile = Instantiate(projectile, new Vector3(shootPoint.position.x - 0.5f, shootPoint.position.y, shootPoint.position.z), shootPoint.rotation);
-        if (Vector3.Distance(transform.position, player.position) > 6f)
-        {
-            newProjectile.GetComponent<Rigidbody>().AddForce(shootPoint.forward * shootForce);
-        }
-        else if (Vector3.Distance(transform.position, player.position) > 4f)
-        {
-            newProjectile.GetComponent<Rigidbody>().AddForce(shootPoint.forward * shootForce / 1.5f);
-        }
-        {
-            newProjectile.GetComponent<Rigidbody>().AddForce(shootPoint.forward * shootForce/2);
-        }
-        timeLastShoot = Time.time;
     }
 
     public void GetHurt(float damage)
@@ -163,7 +125,6 @@ public class zombieController : MonoBehaviour
         if (health > 0)
         {
             //Enemigo sufre daño
-            if (!zombieDamage.isPlaying) zombieDamage.Play();
             sliderHealth.gameObject.SetActive(true);
             health -= damage;
             sliderHealth.value = health;
@@ -211,24 +172,14 @@ public class zombieController : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, alertRange);
 
-        
+
         if (canShoot)
             Gizmos.color = Color.blue;
-            Gizmos.DrawWireSphere(transform.position, attackRange);
-        
+        Gizmos.DrawWireSphere(transform.position, attackRange);
+
         if (!canShoot)
             Gizmos.color = Color.black;
-            Gizmos.DrawWireSphere(transform.position, attackRange);
+        Gizmos.DrawWireSphere(transform.position, attackRange);
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Bullet"))
-        {
-            GetHurt(other.gameObject.GetComponent<ProjectileBullet>().damage);
-        }
-    }
-
-
 
 }

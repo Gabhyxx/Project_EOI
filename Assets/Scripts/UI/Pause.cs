@@ -1,14 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Pause : MonoBehaviour
 {
     public GameObject pauseScreen;
+    public GameObject optionsScreen;
     public GameObject hud;
     public Button resumeButton;
     public Button mainMenuButton;
+
+    public AudioSource clickAudio;
     void Start()
     {
         pauseScreen.SetActive(false);
@@ -17,13 +21,9 @@ public class Pause : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Cancel") && !pauseScreen.activeSelf)
+        if (Input.GetButtonDown("Cancel"))
         {
-            PauseGame();
-        }
-        else if ((Input.GetButtonDown("Cancel")) && pauseScreen.activeSelf)
-        {
-            PauseGame();
+            PauseGame(); 
         }
     }
     private void PauseGame()
@@ -34,7 +34,7 @@ public class Pause : MonoBehaviour
             Time.timeScale = 0;
             Cursor.lockState = CursorLockMode.None;
             hud.SetActive(false);
-        } else if (pauseScreen.activeSelf && Time.timeScale == 0)
+        } else if (pauseScreen.activeSelf && Time.timeScale == 0 && !optionsScreen.activeSelf)
         {
             pauseScreen.SetActive(false);
             Time.timeScale = 1;
@@ -44,17 +44,30 @@ public class Pause : MonoBehaviour
     }
     private void OnEnable()
     {
-        resumeButton.onClick.AddListener(() => ButtonCallBack(resumeButton));  
+        resumeButton.onClick.AddListener(() => ButtonCallBack(resumeButton));
+        mainMenuButton.onClick.AddListener(() => ButtonCallBack(mainMenuButton));
     }
+
+
 
     private void ButtonCallBack(Button buttonPressed)
     {
+        if (buttonPressed)
+        {
+            clickAudio.Play();
+        }
+
         if (buttonPressed == resumeButton)
         {
             pauseScreen.SetActive(false);
             Time.timeScale = 1;
             Cursor.lockState = CursorLockMode.Locked;
             hud.SetActive(true);
+        }
+
+        if (buttonPressed == mainMenuButton)
+        {
+            SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
         }
     }
 }
