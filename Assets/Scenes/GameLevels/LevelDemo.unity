@@ -144,6 +144,18 @@ PrefabInstance:
       propertyPath: optionsScreen
       value: 
       objectReference: {fileID: 733848171}
+    - target: {fileID: 1970795146533753373, guid: f58237b7a03eb164b8c6c8d0acfeb850, type: 3}
+      propertyPath: m_text
+      value: Reanudar
+      objectReference: {fileID: 0}
+    - target: {fileID: 2144693850395470911, guid: f58237b7a03eb164b8c6c8d0acfeb850, type: 3}
+      propertyPath: pistol
+      value: 
+      objectReference: {fileID: 2099533068}
+    - target: {fileID: 2144693850395470911, guid: f58237b7a03eb164b8c6c8d0acfeb850, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1062444167}
     - target: {fileID: 3108850194847539443, guid: f58237b7a03eb164b8c6c8d0acfeb850, type: 3}
       propertyPath: clickAudio
       value: 
@@ -152,6 +164,10 @@ PrefabInstance:
       propertyPath: menuScreen
       value: 
       objectReference: {fileID: 127386385}
+    - target: {fileID: 3368856031214530478, guid: f58237b7a03eb164b8c6c8d0acfeb850, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1062444167}
     - target: {fileID: 5211132496849134334, guid: f58237b7a03eb164b8c6c8d0acfeb850, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -441,6 +457,11 @@ AudioSource:
   m_CorrespondingSourceObject: {fileID: 9068586988970103832, guid: 2273dc90c0ba5e84ea08767a08650c19, type: 3}
   m_PrefabInstance: {fileID: 715227355}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1062444167 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1257570190920844819, guid: 84287e1879518a74c9bc7171c0c41b53, type: 3}
+  m_PrefabInstance: {fileID: 4041984387026293455}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1274010443
 GameObject:
   m_ObjectHideFlags: 0
@@ -665,6 +686,11 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1 &2099533068 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1550677875453625321, guid: 84287e1879518a74c9bc7171c0c41b53, type: 3}
+  m_PrefabInstance: {fileID: 4041984387026293455}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4041984387026293455
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -717,6 +743,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2386003747977335123, guid: 84287e1879518a74c9bc7171c0c41b53, type: 3}
+      propertyPath: weapon.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2386003747977335123, guid: 84287e1879518a74c9bc7171c0c41b53, type: 3}
+      propertyPath: weapon.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2386003747977335123, guid: 84287e1879518a74c9bc7171c0c41b53, type: 3}
+      propertyPath: weapon.Array.data[2]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2386003747977335123, guid: 84287e1879518a74c9bc7171c0c41b53, type: 3}
+      propertyPath: weapon.Array.data[3]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2386003747977335123, guid: 84287e1879518a74c9bc7171c0c41b53, type: 3}
+      propertyPath: weapon.Array.data[4]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2494220642136945092, guid: 84287e1879518a74c9bc7171c0c41b53, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4459394326066577429, guid: 84287e1879518a74c9bc7171c0c41b53, type: 3}
       propertyPath: hud
       value: 
@@ -732,6 +782,10 @@ PrefabInstance:
     - target: {fileID: 4459394326066577429, guid: 84287e1879518a74c9bc7171c0c41b53, type: 3}
       propertyPath: mainMenuButton
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6444664136770397992, guid: 84287e1879518a74c9bc7171c0c41b53, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6627145300535227021, guid: 84287e1879518a74c9bc7171c0c41b53, type: 3}
       propertyPath: healthText
@@ -751,7 +805,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8032018052204657637, guid: 84287e1879518a74c9bc7171c0c41b53, type: 3}
-    m_RemovedGameObjects: []
+    - {fileID: 2386003747977335123, guid: 84287e1879518a74c9bc7171c0c41b53, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 2494220642136945092, guid: 84287e1879518a74c9bc7171c0c41b53, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84287e1879518a74c9bc7171c0c41b53, type: 3}
