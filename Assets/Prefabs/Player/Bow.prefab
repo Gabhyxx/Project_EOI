@@ -875,6 +875,7 @@ GameObject:
   - component: {fileID: 8930069024926348621}
   - component: {fileID: 1071223402845500223}
   - component: {fileID: 1065332580385841631}
+  - component: {fileID: 8399754798476654358}
   m_Layer: 0
   m_Name: Bow
   m_TagString: Untagged
@@ -931,6 +932,8 @@ MonoBehaviour:
   arrowPrefab: {fileID: 5869027392949193990, guid: 60185d09c1c6acd4ab60380197cb77c2, type: 3}
   arrowInstantiatePoint: {fileID: 633319047377554813}
   cadency: 30
+  chargedAmmo: 2
+  maxAmmo: 25
 --- !u!65 &1065332580385841631
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -952,6 +955,27 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.98853475, y: 4.5801826, z: 0.2820713}
   m_Center: {x: 0.5943496, y: 3.4793136, z: 0.006913347}
+--- !u!95 &8399754798476654358
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6549577735931465798}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c25774ad3a3716544975f5faec854e20, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6742539929401593429
 GameObject:
   m_ObjectHideFlags: 0

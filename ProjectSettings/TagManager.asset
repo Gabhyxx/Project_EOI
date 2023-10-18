@@ -12,6 +12,7 @@ TagManager:
   - Music
   - HitboxPlayer
   - Bullet
+  - Arrow
   layers:
   - Default
   - TransparentFX

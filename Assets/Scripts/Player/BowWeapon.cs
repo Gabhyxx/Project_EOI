@@ -11,22 +11,64 @@ public class BowWeapon : MonoBehaviour
 
     public float cadency;
     float timeLastShoot;
+    public int chargedAmmo = 2;
+    public int maxAmmo = 25;
+    public Animator bowAnim;
 
+    GameObject cloneArrow;
+    private void Awake()
+    {
+        bowAnim = GetComponent<Animator>();
+    }
     private void Start()
     {
         cadency = 60/cadency;
     }
-
+    private void Update()
+    {
+        Animating();
+    }
     public void ArrowCreation()
     {
-        if(Time.time > timeLastShoot + cadency)
+        if(Time.time > timeLastShoot + cadency && chargedAmmo > 0)
         {
-        
-            GameObject cloneArrow = Instantiate(arrowPrefab, arrowInstantiatePoint.position, Camera.main.transform.rotation);
+            chargedAmmo--;
+            cloneArrow = Instantiate(arrowPrefab, arrowInstantiatePoint.position, Camera.main.transform.rotation);
             cloneArrow.GetComponent<Rigidbody>().AddForce(Camera.main.transform.forward * arrowForce);
 
             Destroy(cloneArrow, 20);
             timeLastShoot = Time.time;
+        }
+    }
+    public void RechargingBow()
+    {
+        Invoke("Reloading", 6.0f);
+    }
+    public void Reloading()
+    {
+        if(chargedAmmo < maxAmmo)
+        {
+            chargedAmmo = 2;
+            maxAmmo -= 2;
+        }
+    }
+    void Animating()
+    {
+        if (Input.GetMouseButton(0))
+        {
+            bowAnim.SetBool("IsShooting", true);
+        }
+        else
+        {
+            bowAnim.SetBool("IsShooting", false);
+        }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            bowAnim.SetBool("IsReloading", true);
+        }
+        else
+        {
+            bowAnim.SetBool("IsReloading", false);
         }
     }
 

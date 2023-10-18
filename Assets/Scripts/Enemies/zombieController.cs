@@ -227,6 +227,9 @@ public class zombieController : MonoBehaviour
         if (other.CompareTag("Bullet"))
         {
             GetHurt(other.gameObject.GetComponent<ProjectileBullet>().damage);
+        } else if (other.CompareTag("Arrow"))
+        {
+            GetHurt(other.gameObject.GetComponent<ArrowBullet>().damage);
         }
     }
 

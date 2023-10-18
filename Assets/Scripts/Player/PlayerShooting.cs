@@ -6,16 +6,21 @@ using UnityEngine;
 public class PlayerShooting : MonoBehaviour
 {
     //Publicas
-
+    
 
     //Privadas
     [SerializeField] int currentWeapon;
     public GameObject[] weapon;
     WeaponProp weaponProp;
+    
 
     public int GetCurrentWeapon()
     {
         return currentWeapon;
+    }
+    public void SetCurrentWeapon(int currentWeapon)
+    {
+        this.currentWeapon = currentWeapon;
     }
 
     void Update()
@@ -43,11 +48,6 @@ public class PlayerShooting : MonoBehaviour
                     break;
             }
         }
-        //--------------------------------------- PRUEBAS, BORRAR LUEGO
-        if (Input.GetKeyDown(KeyCode.P) && weaponProp != null)
-        {
-            ChangeWeapon(weaponProp.weaponIndex);
-        }
     }
 
     public void ChangeWeapon(int index)
@@ -55,8 +55,7 @@ public class PlayerShooting : MonoBehaviour
         weapon[currentWeapon].SetActive(false);
         weapon[index].SetActive(true);
         int aux = currentWeapon;
-        currentWeapon = weaponProp.weaponIndex;
-        weaponProp.ChangeWeapon(aux);
+        currentWeapon = index;
     }
 
     private void OnTriggerEnter(Collider other)

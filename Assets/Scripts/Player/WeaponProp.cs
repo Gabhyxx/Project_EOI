@@ -19,6 +19,7 @@ public class WeaponProp : MonoBehaviour
 
     public void ChangeWeapon(int index)
     {
+        Debug.Log(index);
         weaponModel[weaponIndex].SetActive(false);
         weaponIndex = index;
         weaponModel[weaponIndex].SetActive(true);

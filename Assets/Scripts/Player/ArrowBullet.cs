@@ -5,13 +5,12 @@ using UnityEngine;
 public class ArrowBullet : MonoBehaviour
 {
     Rigidbody arrowB;
-    Transform transformArrowB; //No se si necesito la variable -Gabhy
     Collider arrowCollider;
+    public float damage;
 
     private void Awake()
     {
         arrowB = GetComponent<Rigidbody>();
-        transformArrowB = GetComponent<Transform>();
         arrowCollider = GetComponent<Collider>();
     }
 
