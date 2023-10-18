@@ -34,6 +34,9 @@ Transform:
   - {fileID: 2075895140564532110}
   - {fileID: 7642378011166014379}
   - {fileID: 3489301610003051021}
+  - {fileID: 5570086547367527523}
+  - {fileID: 2334292931591586116}
+  - {fileID: 6723704315290032697}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &31206692755165878
@@ -47,7 +50,7 @@ GameObject:
   - component: {fileID: 6546685969504687398}
   - component: {fileID: 7113019658688313267}
   - component: {fileID: 8838668485617442110}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Stair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,7 +133,7 @@ GameObject:
   - component: {fileID: 3560108609278561716}
   - component: {fileID: 1183051487629716463}
   - component: {fileID: 2804842873160008383}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Stair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -211,7 +214,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 564425320822712953}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Step (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -243,7 +246,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8571480302884567571}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Step (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -275,7 +278,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3595273967294276282}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Step (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -309,7 +312,7 @@ GameObject:
   - component: {fileID: 4728814793029883368}
   - component: {fileID: 144097165972883900}
   - component: {fileID: 2876372420687735738}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Stair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -381,6 +384,111 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &582478570696660057
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6723704315290032697}
+  - component: {fileID: 6098025524533500726}
+  - component: {fileID: 4888409020908571147}
+  - component: {fileID: 1778162501807552855}
+  m_Layer: 8
+  m_Name: Cube (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6723704315290032697
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582478570696660057}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -16.54, y: 10.823, z: -0.494}
+  m_LocalScale: {x: 1.5, y: 2.2, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4061346475168857292}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &6098025524533500726
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582478570696660057}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &4888409020908571147
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582478570696660057}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1778162501807552855
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582478570696660057}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &753972479921773309
 GameObject:
   m_ObjectHideFlags: 0
@@ -393,7 +501,7 @@ GameObject:
   - component: {fileID: 7798793311259177466}
   - component: {fileID: 4081479465676558733}
   - component: {fileID: 3943906942941933876}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ramp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -498,7 +606,7 @@ GameObject:
   - component: {fileID: 2964257995553510651}
   - component: {fileID: 3075621620454078971}
   - component: {fileID: 3961458477391742103}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Stair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -581,7 +689,7 @@ GameObject:
   - component: {fileID: 838917616304869795}
   - component: {fileID: 4945004605417549641}
   - component: {fileID: 1072096217062680546}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Stair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -664,7 +772,7 @@ GameObject:
   - component: {fileID: 4054894983415079423}
   - component: {fileID: 3990971908008443876}
   - component: {fileID: 3619015211612142408}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Stair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -745,7 +853,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4037823952584609751}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Step (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -779,7 +887,7 @@ GameObject:
   - component: {fileID: 3181828291030598940}
   - component: {fileID: 8268043706169838457}
   - component: {fileID: 3536267899171269104}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Stair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -860,7 +968,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7642378011166014379}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Handrail_Middle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -894,7 +1002,7 @@ GameObject:
   - component: {fileID: 4480088581450857962}
   - component: {fileID: 3702138283376089992}
   - component: {fileID: 4014577281575995893}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Stair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -975,7 +1083,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3176102380548416614}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RampPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -991,8 +1099,8 @@ Transform:
   m_GameObject: {fileID: 1512030574775784540}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.2588191, w: 0.9659258}
-  m_LocalPosition: {x: 0.23999786, y: 0.13999653, z: 0}
-  m_LocalScale: {x: 2.06843, y: 1, z: 0.099523805}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5438586250325335868}
@@ -1007,7 +1115,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3489301610003051021}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Handrail_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1041,7 +1149,7 @@ GameObject:
   - component: {fileID: 6176817581446147730}
   - component: {fileID: 9152601499211447707}
   - component: {fileID: 4443971730502682919}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Stair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1229,7 +1337,7 @@ GameObject:
   - component: {fileID: 8589429647807827219}
   - component: {fileID: 6742516423680262466}
   - component: {fileID: 3219982428786577318}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Stair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1310,7 +1418,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6529937589194140885}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Step (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1342,7 +1450,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 183592847134109969}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Step (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1374,7 +1482,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8175729105044846407}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Step (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1408,7 +1516,7 @@ GameObject:
   - component: {fileID: 8913532535203793902}
   - component: {fileID: 920113778182876441}
   - component: {fileID: 6308943739380155651}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Stair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1491,7 +1599,7 @@ GameObject:
   - component: {fileID: 5491535851273379871}
   - component: {fileID: 2543730544118789836}
   - component: {fileID: 4324515660024165267}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Stair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1572,7 +1680,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3204539339766217759}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Step
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1604,7 +1712,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4630282621420972179}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Step (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1638,7 +1746,7 @@ GameObject:
   - component: {fileID: 5080820800501657864}
   - component: {fileID: 2298201999103670151}
   - component: {fileID: 7054823052507508853}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Stair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1721,7 +1829,7 @@ GameObject:
   - component: {fileID: 5908612968034894319}
   - component: {fileID: 3947747553849446534}
   - component: {fileID: 6894462277803248906}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Stair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1802,7 +1910,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7447336422787821529}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Step (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1834,7 +1942,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3528778986372057775}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TopStairs_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1886,7 +1994,7 @@ GameObject:
   - component: {fileID: 3397670096809265579}
   - component: {fileID: 332797904239893876}
   - component: {fileID: 6349880771054829970}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Stair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1969,7 +2077,7 @@ GameObject:
   - component: {fileID: 644580558327704991}
   - component: {fileID: 1757145827507084955}
   - component: {fileID: 1972764310292528726}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Stair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2050,7 +2158,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3582782899604407134}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Step (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2082,7 +2190,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1595485637982729520}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Step (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2114,7 +2222,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3092092096791326756}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Step (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2146,7 +2254,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 226234398290297039}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Step (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2178,7 +2286,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8729048636577912966}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Step (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2212,7 +2320,7 @@ GameObject:
   - component: {fileID: 2125844269533097412}
   - component: {fileID: 2352990068482091631}
   - component: {fileID: 4493539946991826692}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Stair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2293,7 +2401,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7991858905808405019}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Step (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2327,7 +2435,7 @@ GameObject:
   - component: {fileID: 2137791551472891122}
   - component: {fileID: 4844755009959185710}
   - component: {fileID: 1889571699609240610}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Stair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2408,7 +2516,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6865575955405108847}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Step (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2440,7 +2548,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1462917554822897547}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Step (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2472,7 +2580,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3613683083694122883}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Step (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2504,7 +2612,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7914384111893545542}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Step (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2538,7 +2646,7 @@ GameObject:
   - component: {fileID: 2427178160805484692}
   - component: {fileID: 6205887723543202365}
   - component: {fileID: 4916613928630866810}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Stair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2621,7 +2729,7 @@ GameObject:
   - component: {fileID: 4376541446266350580}
   - component: {fileID: 3116102702581403010}
   - component: {fileID: 3913970630030680056}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Stair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2704,7 +2812,7 @@ GameObject:
   - component: {fileID: 3753297179604498702}
   - component: {fileID: 7642997406778859085}
   - component: {fileID: 3298695074376652878}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Stair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2785,7 +2893,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2690403228282564933}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Step (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2808,6 +2916,111 @@ Transform:
   - {fileID: 9130893863772497821}
   m_Father: {fileID: 3528778986372057775}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4768786906443761888
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5570086547367527523}
+  - component: {fileID: 4289813119185223572}
+  - component: {fileID: 1972304881914098371}
+  - component: {fileID: 6620431041519066819}
+  m_Layer: 8
+  m_Name: Cube (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5570086547367527523
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4768786906443761888}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.5267029, y: 0.9840021, z: -0.49499893}
+  m_LocalScale: {x: 1.5, y: 2.2, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4061346475168857292}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &4289813119185223572
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4768786906443761888}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &1972304881914098371
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4768786906443761888}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &6620431041519066819
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4768786906443761888}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4779193536210605756
 GameObject:
   m_ObjectHideFlags: 0
@@ -2817,7 +3030,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8106866206241633885}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RampPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2833,8 +3046,8 @@ Transform:
   m_GameObject: {fileID: 4779193536210605756}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.2588191, w: 0.9659258}
-  m_LocalPosition: {x: 0.23999786, y: 0.13999653, z: 0}
-  m_LocalScale: {x: 2.06843, y: 1, z: 0.099523805}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3939949404552482765}
@@ -2849,7 +3062,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6025141127780073142}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Step (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2881,7 +3094,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3872236191745463756}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Step (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2913,7 +3126,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1696975978244467544}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Step (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2945,7 +3158,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 842278893396288259}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Step (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2968,6 +3181,111 @@ Transform:
   - {fileID: 6176817581446147730}
   m_Father: {fileID: 3528778986372057775}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5353692069521708338
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2334292931591586116}
+  - component: {fileID: 1606444503397722237}
+  - component: {fileID: 3464386348102331552}
+  - component: {fileID: 304182280087542102}
+  m_Layer: 8
+  m_Name: Cube (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2334292931591586116
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5353692069521708338}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.5267029, y: 0.9840021, z: 21.5}
+  m_LocalScale: {x: 1.5, y: 2.2, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4061346475168857292}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &1606444503397722237
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5353692069521708338}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &3464386348102331552
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5353692069521708338}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &304182280087542102
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5353692069521708338}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5463315090360145218
 GameObject:
   m_ObjectHideFlags: 0
@@ -2977,7 +3295,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4911205343244008144}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Step
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3043,7 +3361,7 @@ GameObject:
   - component: {fileID: 35038809960518683}
   - component: {fileID: 2727424843713206555}
   - component: {fileID: 169727485926120995}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Stair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3124,7 +3442,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8686844718520400457}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Step (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3156,7 +3474,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4326419805172432346}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Step (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3188,7 +3506,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6311563502275839054}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Step (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3223,7 +3541,7 @@ GameObject:
   - component: {fileID: 8756339560086533743}
   - component: {fileID: 6177896140591116474}
   - component: {fileID: 596922180927989223}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ramp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3328,7 +3646,7 @@ GameObject:
   - component: {fileID: 4543721127855668707}
   - component: {fileID: 6782409128838625070}
   - component: {fileID: 3953437025579693082}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Stair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3409,7 +3727,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8880848374088494591}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Step (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3443,7 +3761,7 @@ GameObject:
   - component: {fileID: 7626899379192705703}
   - component: {fileID: 7528439814302683725}
   - component: {fileID: 297153992708903253}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Stair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3524,7 +3842,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3214021336912167754}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Step (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3558,7 +3876,7 @@ GameObject:
   - component: {fileID: 3118054262262590629}
   - component: {fileID: 5942610053992408653}
   - component: {fileID: 6759335591325649968}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Stair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3641,7 +3959,7 @@ GameObject:
   - component: {fileID: 6064593130723157805}
   - component: {fileID: 7277740121037523425}
   - component: {fileID: 2316467185154972615}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Stair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3724,7 +4042,7 @@ GameObject:
   - component: {fileID: 1372461065431816629}
   - component: {fileID: 7846179695979113257}
   - component: {fileID: 1927668805218211276}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Stair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3805,7 +4123,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5918777478106662468}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Step (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3839,7 +4157,7 @@ GameObject:
   - component: {fileID: 43176749325223551}
   - component: {fileID: 8889991090219651370}
   - component: {fileID: 6310922847755122583}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Stair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3920,7 +4238,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5394968304884391325}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TopStairs_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3972,7 +4290,7 @@ GameObject:
   - component: {fileID: 2275206417776730792}
   - component: {fileID: 1637140940460898526}
   - component: {fileID: 7872063200931762408}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Stair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4055,7 +4373,7 @@ GameObject:
   - component: {fileID: 1201855282560015613}
   - component: {fileID: 1966717334388961330}
   - component: {fileID: 2864517837938827962}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Stair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4138,7 +4456,7 @@ GameObject:
   - component: {fileID: 9130893863772497821}
   - component: {fileID: 1592700985274013634}
   - component: {fileID: 5315063445299984481}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Stair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4222,7 +4540,7 @@ GameObject:
   - component: {fileID: 2900883669493978008}
   - component: {fileID: 5766235535496357862}
   - component: {fileID: 582770990108593897}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4324,7 +4642,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1852093008283893455}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Step (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4358,7 +4676,7 @@ GameObject:
   - component: {fileID: 5561010909016633080}
   - component: {fileID: 1861628988340535669}
   - component: {fileID: 3598609984457562526}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Stair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4439,7 +4757,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1780614583571999871}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Step (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4471,7 +4789,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1185511254741776710}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Step (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4503,7 +4821,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3200393511942800127}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Step (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4537,7 +4855,7 @@ GameObject:
   - component: {fileID: 6832991619462099982}
   - component: {fileID: 5748127047903796866}
   - component: {fileID: 2108672143169779590}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Stair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4620,7 +4938,7 @@ GameObject:
   - component: {fileID: 6713436150422768832}
   - component: {fileID: 6927313716336927540}
   - component: {fileID: 6269111958371375920}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Stair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4703,7 +5021,7 @@ GameObject:
   - component: {fileID: 3272154737773450102}
   - component: {fileID: 6320460385504287331}
   - component: {fileID: 6583753530474961482}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Stair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4786,7 +5104,7 @@ GameObject:
   - component: {fileID: 437788395675551050}
   - component: {fileID: 8561398959497378468}
   - component: {fileID: 5585391682559524107}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Stair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4870,7 +5188,7 @@ GameObject:
   - component: {fileID: 8588914719253770210}
   - component: {fileID: 1580784915576659536}
   - component: {fileID: 2833893763720407530}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
