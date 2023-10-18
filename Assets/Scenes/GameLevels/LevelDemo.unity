@@ -1243,6 +1243,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 320754234}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!95 &352004560 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2218623735727790928, guid: 84287e1879518a74c9bc7171c0c41b53, type: 3}
+  m_PrefabInstance: {fileID: 4041984387026293455}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &386793351
 GameObject:
   m_ObjectHideFlags: 0
@@ -2194,10 +2199,15 @@ PrefabInstance:
     - target: {fileID: 2144693850395470911, guid: f58237b7a03eb164b8c6c8d0acfeb850, type: 3}
       propertyPath: pistol
       value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2144693850395470911, guid: f58237b7a03eb164b8c6c8d0acfeb850, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1062444167}
+    - target: {fileID: 2144693850395470911, guid: f58237b7a03eb164b8c6c8d0acfeb850, type: 3}
+      propertyPath: weapon
+      value: 
+      objectReference: {fileID: 2099533068}
     - target: {fileID: 3108850194847539443, guid: f58237b7a03eb164b8c6c8d0acfeb850, type: 3}
       propertyPath: clickAudio
       value: 
@@ -2549,11 +2559,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-      objectReference: {fileID: 2125831378}
-    - target: {fileID: 2144693850395470911, guid: f58237b7a03eb164b8c6c8d0acfeb850, type: 3}
-      propertyPath: weapon
-      value: 
-      objectReference: {fileID: 2125831378}
 --- !u!1 &656040131
 GameObject:
   m_ObjectHideFlags: 0
@@ -2586,6 +2591,11 @@ Transform:
   - {fileID: 2082409095}
   m_Father: {fileID: 601740185}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &673358124 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3670300642594057443, guid: f58237b7a03eb164b8c6c8d0acfeb850, type: 3}
+  m_PrefabInstance: {fileID: 580807968}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &675190681
 GameObject:
   m_ObjectHideFlags: 0
@@ -6670,6 +6680,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1864070734}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1885841941 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3263154748235651389, guid: f58237b7a03eb164b8c6c8d0acfeb850, type: 3}
+  m_PrefabInstance: {fileID: 580807968}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1890357397
 GameObject:
   m_ObjectHideFlags: 0
@@ -11172,6 +11187,10 @@ PrefabInstance:
       propertyPath: m_Intensity
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 202749042862217053, guid: 84287e1879518a74c9bc7171c0c41b53, type: 3}
+      propertyPath: m_TagString
+      value: MainCamera
+      objectReference: {fileID: 0}
     - target: {fileID: 364239462399743320, guid: 84287e1879518a74c9bc7171c0c41b53, type: 3}
       propertyPath: m_LocalPosition.x
       value: -106.645
@@ -11222,7 +11241,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1550677875453625321, guid: 84287e1879518a74c9bc7171c0c41b53, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1572564735191746522, guid: 84287e1879518a74c9bc7171c0c41b53, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2218623735727790928, guid: 84287e1879518a74c9bc7171c0c41b53, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 753077f725a795742a682015ba3a6591, type: 2}
+    - target: {fileID: 2218623735727790928, guid: 84287e1879518a74c9bc7171c0c41b53, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2386003747977335123, guid: 84287e1879518a74c9bc7171c0c41b53, type: 3}
       propertyPath: weapon.Array.data[0]
@@ -11306,24 +11337,40 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6512518821888470612, guid: 84287e1879518a74c9bc7171c0c41b53, type: 3}
       propertyPath: currentWeapon
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6627145300535227021, guid: 84287e1879518a74c9bc7171c0c41b53, type: 3}
       propertyPath: ammoText
       value: 
-      objectReference: {fileID: 2120765469}
+      objectReference: {fileID: 673358124}
     - target: {fileID: 6627145300535227021, guid: 84287e1879518a74c9bc7171c0c41b53, type: 3}
       propertyPath: healthText
       value: 
+      objectReference: {fileID: 1885841941}
+    - target: {fileID: 6684291496959458992, guid: 84287e1879518a74c9bc7171c0c41b53, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7058083497960966870, guid: 84287e1879518a74c9bc7171c0c41b53, type: 3}
       propertyPath: flashLight
       value: 
       objectReference: {fileID: 412752333}
+    - target: {fileID: 7102685296910065979, guid: 84287e1879518a74c9bc7171c0c41b53, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 7102685296910065979, guid: 84287e1879518a74c9bc7171c0c41b53, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.46
+      objectReference: {fileID: 0}
     - target: {fileID: 7235907685679917251, guid: 84287e1879518a74c9bc7171c0c41b53, type: 3}
       propertyPath: velocity
       value: 600
       objectReference: {fileID: 0}
+    - target: {fileID: 7243493501611777913, guid: 84287e1879518a74c9bc7171c0c41b53, type: 3}
+      propertyPath: bowAnim
+      value: 
+      objectReference: {fileID: 352004560}
     - target: {fileID: 8032018052204657637, guid: 84287e1879518a74c9bc7171c0c41b53, type: 3}
       propertyPath: hud
       value: 
@@ -11350,9 +11397,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1550677875453625321, guid: 84287e1879518a74c9bc7171c0c41b53, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2099533071}
-    - targetCorrespondingSourceObject: {fileID: 3512535905612856320, guid: 84287e1879518a74c9bc7171c0c41b53, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2125831380}
   m_SourcePrefab: {fileID: 100100000, guid: 84287e1879518a74c9bc7171c0c41b53, type: 3}
 --- !u!4 &4074455315166017459
 Transform:
@@ -14743,7 +14787,6 @@ SceneRoots:
   - {fileID: 586344738}
   - {fileID: 452376715101002937}
   - {fileID: 715227355}
-  - {fileID: 1907048351}
   - {fileID: 863379986}
   - {fileID: 1108210306}
   - {fileID: 579521867}
