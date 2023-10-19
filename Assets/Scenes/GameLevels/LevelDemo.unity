@@ -12831,6 +12831,10 @@ PrefabInstance:
       value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 7243493501611777913, guid: 84287e1879518a74c9bc7171c0c41b53, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1062444167}
+    - target: {fileID: 7243493501611777913, guid: 84287e1879518a74c9bc7171c0c41b53, type: 3}
       propertyPath: bowAnim
       value: 
       objectReference: {fileID: 352004560}
