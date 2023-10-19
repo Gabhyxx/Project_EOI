@@ -14,10 +14,13 @@ public class BowWeapon : MonoBehaviour
     public int chargedAmmo = 2;
     public int maxAmmo = 25;
     public Animator bowAnim;
+    public GameObject player;
 
     GameObject cloneArrow;
     private void Awake()
     {
+        maxAmmo = player.GetComponent<Player>().arrowQuiver * 25;
+        chargedAmmo = 2;
         bowAnim = GetComponent<Animator>();
     }
     private void Start()
@@ -26,6 +29,11 @@ public class BowWeapon : MonoBehaviour
     }
     private void Update()
     {
+        if(maxAmmo<25 && player.GetComponent<Player>().arrowQuiver > 0)
+        {
+            maxAmmo = 25;
+            player.GetComponent<Player>().arrowQuiver--;
+        }
         Animating();
     }
     public void ArrowCreation()

@@ -7,7 +7,6 @@ public class EpinephrineInyectionProperties : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        
         if (other.gameObject.tag=="Player" && other.GetComponent<Player>().epinephrineInjection == 0)
         {
             other.GetComponent<Player>().epinephrineInjection = 1;
