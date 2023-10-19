@@ -6,6 +6,7 @@ public class ArrowQuiverProperties : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
+
         if (other.gameObject.tag == "Player" && other.GetComponent<Player>().arrowQuiver == 0)
         {
             other.GetComponent<Player>().arrowQuiver = 1;
