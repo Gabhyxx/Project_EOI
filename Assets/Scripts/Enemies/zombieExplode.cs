@@ -8,6 +8,7 @@ using UnityEngine.AI;
 public class zombieExplode : MonoBehaviour
 {
     public Transform player;
+    public LayerMask layerPlayer;
     public float explosionRange;
     public ParticleSystem explosionParticles;
 
@@ -15,7 +16,7 @@ public class zombieExplode : MonoBehaviour
     public float shakeTime;
     public float shakeSpeed;
 
-    public AnimationCurve scaleCurve = AnimationCurve.EaseInOut(0f,0f,1f,1f);
+    public AnimationCurve scaleCurve = AnimationCurve.EaseInOut(0f, 0f, 1f, 1f);
     public float scaleAmount;
     public float scaleTime;
 
@@ -31,7 +32,8 @@ public class zombieExplode : MonoBehaviour
 
     private void Update()
     {
-        if (canExplode() &&  GetComponent<zombieController>().health  > 0){
+        if (canExplode() && GetComponent<zombieController>().health > 0)
+        {
             Explode();
         }
     }
@@ -44,7 +46,7 @@ public class zombieExplode : MonoBehaviour
         RaycastHit hitInfo;
 
         // Lanza un rayo desde la posición del enemigo en la dirección del objetivo
-        if (Physics.Raycast(transform.position, direction, out hitInfo, distance, ~LayerMask.GetMask("Trigger"), QueryTriggerInteraction.Ignore))
+        if (Physics.Raycast(transform.position, direction, out hitInfo, distance, layerPlayer))
         {
             // Si el rayo golpea al player devuelve true
             if (hitInfo.collider.CompareTag("HitboxPlayer") && distance < explosionRange)
@@ -68,9 +70,10 @@ public class zombieExplode : MonoBehaviour
         Coroutine shakeCoroutine = StartCoroutine(SimpleShakeCoroutine());
         float currentScaleTime = 0f;
         Vector3 originalScale = transform.localScale;
-        while (currentScaleTime < scaleTime){
+        while (currentScaleTime < scaleTime)
+        {
             float dt = currentScaleTime / scaleTime;
-            Vector3 newScale = originalScale + originalScale * scaleCurve.Evaluate(dt) * (scaleAmount -1f);
+            Vector3 newScale = originalScale + originalScale * scaleCurve.Evaluate(dt) * (scaleAmount - 1f);
             transform.localScale = newScale;
             currentScaleTime += Time.deltaTime;
             yield return null;
@@ -100,12 +103,13 @@ public class zombieExplode : MonoBehaviour
         }
     }
 
- 
+
     private IEnumerator SimpleShakeCoroutine()
     {
         Vector3 initialPosition = transform.localPosition;
         float endTime = Time.time + shakeTime;
-        while (Time.time < endTime) { 
+        while (Time.time < endTime)
+        {
             Vector3 randomPoint = UnityEngine.Random.insideUnitSphere * shakeAmount;
             transform.localPosition = initialPosition + randomPoint;
             yield return null;
