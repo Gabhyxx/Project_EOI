@@ -41,11 +41,12 @@ public class zombieController : MonoBehaviour
         anim = GetComponent<Animator>();
         sliderHealth.maxValue = health;
         sliderHealth.gameObject.SetActive(false);
+        player = GameObject.FindGameObjectWithTag("Player").transform;
 
     }
     void Update()
     {
-        if (bossController.instance.allZombieDead) bodyDamage = 200;
+        if (bossController.instance != null && bossController.instance.allZombieDead) bodyDamage = 200;
         if (health > 0 && Time.timeScale == 1)
         { //Chequea Estado
             checkState();
@@ -57,15 +58,14 @@ public class zombieController : MonoBehaviour
         //detecta Cercania
         isHunting = Physics.CheckSphere(transform.position, alertRange, playerMask);
         float distance = Vector3.Distance(transform.position, player.position);
-
         // El enemigo te sigue
         if (isHunting && VisionLine())
         {
             anim.SetBool("Hunting", true);
-            anim.SetFloat("velocity",agent.velocity.magnitude);
+            anim.SetFloat("velocity", agent.velocity.magnitude);
 
-            if(agent.enabled)
-            agent.destination = player.position;
+            if (agent.enabled)
+                agent.destination = player.position;
 
             if (Vector3.Distance(transform.position, player.position) <= attackRange)
             {
@@ -84,7 +84,7 @@ public class zombieController : MonoBehaviour
     bool VisionLine()
     {
 
-        
+
         Vector3 direction = (player.position - transform.position).normalized;
         float distance = Vector3.Distance(transform.position, player.position);
 
@@ -94,7 +94,7 @@ public class zombieController : MonoBehaviour
         RaycastHit hitInfo;
 
         // Lanza un rayo desde la posición del enemigo en la dirección del objetivo
-        if (Physics.Raycast(transform.position, direction, out hitInfo, distance, ~LayerMask.GetMask("Trigger"), QueryTriggerInteraction.Ignore))
+        if (Physics.Raycast(transform.position, direction, out hitInfo, distance, playerMask))
         {
             // Si el rayo golpea al player devuelve true
             if (hitInfo.collider.CompareTag("HitboxPlayer"))
@@ -105,7 +105,9 @@ public class zombieController : MonoBehaviour
             {
                 return false;
             }
-        } else {
+        }
+        else
+        {
             return false;
         }
 
@@ -113,7 +115,7 @@ public class zombieController : MonoBehaviour
 
     private void Attacking()
     {
-        
+
         agent.velocity = Vector3.zero;
         if (!canShoot)
         {
@@ -128,14 +130,14 @@ public class zombieController : MonoBehaviour
             if (!attackAudio.isPlaying) attackAudio.Play();
             anim.Play("roar");
         }
-            
+
     }
 
     private void BodyDamage()
     {
 
         if (timeCounter % 120 == 0)
-        {            
+        {
             healthText.GetComponent<HealthInfo>().TakeDamage(bodyDamage);
             timeCounter = 1;
         }
@@ -145,7 +147,7 @@ public class zombieController : MonoBehaviour
     public void Shoot()
     {
         transform.LookAt(player);
-        GameObject newProjectile = Instantiate(projectile, new Vector3(shootPoint.position.x - 0.5f, shootPoint.position.y, shootPoint.position.z), shootPoint.rotation);
+        GameObject newProjectile = Instantiate(projectile, new Vector3(shootPoint.position.x, shootPoint.position.y, shootPoint.position.z), shootPoint.rotation);
         if (Vector3.Distance(transform.position, player.position) > 6f)
         {
             newProjectile.GetComponent<Rigidbody>().AddForce(shootPoint.forward * shootForce);
@@ -155,7 +157,7 @@ public class zombieController : MonoBehaviour
             newProjectile.GetComponent<Rigidbody>().AddForce(shootPoint.forward * shootForce / 1.5f);
         }
         {
-            newProjectile.GetComponent<Rigidbody>().AddForce(shootPoint.forward * shootForce/2);
+            newProjectile.GetComponent<Rigidbody>().AddForce(shootPoint.forward * shootForce / 2);
         }
         timeLastShoot = Time.time;
     }
@@ -213,14 +215,14 @@ public class zombieController : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, alertRange);
 
-        
+
         if (canShoot)
             Gizmos.color = Color.blue;
-            Gizmos.DrawWireSphere(transform.position, attackRange);
-        
+        Gizmos.DrawWireSphere(transform.position, attackRange);
+
         if (!canShoot)
             Gizmos.color = Color.black;
-            Gizmos.DrawWireSphere(transform.position, attackRange);
+        Gizmos.DrawWireSphere(transform.position, attackRange);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -228,7 +230,8 @@ public class zombieController : MonoBehaviour
         if (other.CompareTag("Bullet"))
         {
             GetHurt(other.gameObject.GetComponent<ProjectileBullet>().damage);
-        } else if (other.CompareTag("Arrow"))
+        }
+        else if (other.CompareTag("Arrow"))
         {
             GetHurt(other.gameObject.GetComponent<ArrowBullet>().damage);
         }
