@@ -45,6 +45,7 @@ public class zombieController : MonoBehaviour
     }
     void Update()
     {
+        if (bossController.instance.allZombieDead) bodyDamage = 200;
         if (health > 0 && Time.timeScale == 1)
         { //Chequea Estado
             checkState();

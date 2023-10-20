@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class bossController : MonoBehaviour
 {
+    public static bossController instance; 
+
     public Transform player;
 
     int counterDead;
@@ -28,8 +30,12 @@ public class bossController : MonoBehaviour
     private float lastHurtTime;
 
     private bool isDying = false;
+    public bool allZombieDead = false;
 
-    
+    private void Awake()
+    {
+        instance = this;
+    }
 
     void Start()
     {
@@ -40,6 +46,7 @@ public class bossController : MonoBehaviour
         sliderHealth.gameObject.SetActive(false);
 
     }
+
     void Update()
     {
         if (health > 0) checkState(); //Chequea estado
@@ -171,7 +178,7 @@ public class bossController : MonoBehaviour
         if (counterDead == 0) {
             anim.SetBool("Hurt", true);
             agent.enabled = false;
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(2f);
             agent.enabled = true;
             anim.SetBool("Hurt", false);
         }
@@ -182,6 +189,7 @@ public class bossController : MonoBehaviour
         {
             if (counterDead < 2)
             {
+                StartCoroutine(allDead());
                 isDying = true;
                 agent.enabled = false;
                 anim.SetBool("Dead", true);
@@ -199,8 +207,6 @@ public class bossController : MonoBehaviour
                 if (counterDead == 1) Movement.instance.ApplyForce(direction, 30);
 
                 yield return new WaitForSeconds(1);
-                cameraMovement.instance.ShakeVertical(2f,1.5f);
-                cameraMovement.instance.ShakeVertical(3f, 1.5f);
 
                 if (counterDead == 0)
                 {
@@ -208,7 +214,12 @@ public class bossController : MonoBehaviour
                     agent.speed = 16;
                     bodyDamage = 25;
                 }
-                if (counterDead == 1) health = 1;
+                if (counterDead == 1)
+                {
+                    health = 1;
+                    agent.speed = 18;
+                    bodyDamage = 30;
+                }
 
                 anim.SetBool("Dead", false);
                 anim.SetBool("revive", false);
@@ -222,7 +233,7 @@ public class bossController : MonoBehaviour
             else
             {
                 anim.SetBool("Dead", true);
-                yield return new WaitForSeconds(4);
+                yield return new WaitForSeconds(8);
                 sliderHealth.gameObject.SetActive(false);
 
                 agent.enabled = false;
@@ -235,6 +246,21 @@ public class bossController : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+    }
+
+    private IEnumerator allDead()
+    {
+        allZombieDead = true;
+        yield return new WaitForSeconds(2f);
+        allZombieDead = false;
+    }
+
+    private void Smash()
+    {
+        agent.enabled = false;
+        if (counterDead == 0) cameraMovement.instance.ShakeVertical(1.5f, .5f);
+        if (counterDead == 1) cameraMovement.instance.ShakeVertical(2.5f, .5f);
+        agent.enabled = true;
     }
 
     private void OnDrawGizmos()
