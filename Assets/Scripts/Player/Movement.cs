@@ -67,4 +67,11 @@ public class Movement : MonoBehaviour
         yield return new WaitForSeconds(timeToDash);
         canDash = true;
     }
+
+    public void ApplyForce(Vector3 force, int forceImpulse)
+    {
+        rig.AddForce(force * forceImpulse, ForceMode.Impulse);
+        rig.velocity = Vector3.zero;
+    }
+
 }

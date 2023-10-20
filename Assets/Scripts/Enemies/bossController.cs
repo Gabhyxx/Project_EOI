@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,9 +9,9 @@ public class bossController : MonoBehaviour
 {
     public Transform player;
 
-    bool isHunting;
+    int counterDead;
 
-    public float alertRange, attackRange;
+    public float attackRange;
     public bool canShoot;
     public LayerMask playerMask;
     NavMeshAgent agent;
@@ -23,8 +24,16 @@ public class bossController : MonoBehaviour
     public int timeCounter;
     public Slider sliderHealth;
 
+    private bool isRecentlyHurt = false;
+    private float lastHurtTime;
+
+    private bool isDying = false;
+
+    
+
     void Start()
     {
+
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
         sliderHealth.maxValue = health;
@@ -33,25 +42,32 @@ public class bossController : MonoBehaviour
     }
     void Update()
     {
-        if (health > 0)
-        { //Chequea Estado
-            checkState();
+        if (health > 0) checkState(); //Chequea estado
+        checkSanity();
+    }
+
+    private void checkSanity()
+    {
+        if ((isRecentlyHurt && Time.time - lastHurtTime < 1f && counterDead ==0)) anim.SetBool("Hurt", true);
+        else
+        {
+            anim.SetBool("Hurt", false);
+            isRecentlyHurt = false;
         }
     }
 
     private void checkState()
     {
         //detecta Cercania
-        isHunting = Physics.CheckSphere(transform.position, alertRange, playerMask);
         float distance = Vector3.Distance(transform.position, player.position);
 
         // El enemigo te sigue
-        if (isHunting && VisionLine())
+        if (VisionLine())
         {
             anim.SetBool("Hunting", true);
             anim.SetFloat("velocity", agent.velocity.magnitude);
 
-            agent.destination = player.position;
+            if (agent.enabled) agent.destination = player.position;
 
             if (Vector3.Distance(transform.position, player.position) <= attackRange)
             {
@@ -102,7 +118,7 @@ public class bossController : MonoBehaviour
     private void Attacking()
     {
         agent.velocity = Vector3.zero;
-        if (!canShoot)
+        if (!canShoot )
         {
             anim.SetBool("Attacking", true);
             BodyDamage();
@@ -112,66 +128,117 @@ public class bossController : MonoBehaviour
 
     private void BodyDamage()
     {
-        if (timeCounter % 120 == 0)
+        if (timeCounter % 60 == 0)
         {
+
             healthText.GetComponent<HealthInfo>().TakeDamage(bodyDamage);
             timeCounter = 1;
+            
+
         }
         timeCounter++;
+    }
+
+    private void Push()
+    {
+        Vector3 direction = player.transform.position - transform.position;
+        direction.y = 0f; 
+        direction.Normalize();
+
+        Movement.instance.ApplyForce(direction, 15);
     }
 
     public void GetHurt(float damage)
     {
         if (health > 0)
         {
-            //Enemigo sufre daño
+            // Enemigo sufre daño
             sliderHealth.gameObject.SetActive(true);
             health -= damage;
             sliderHealth.value = health;
+
+            // Guardar el tiempo en el que fue herido
+            lastHurtTime = Time.time;
+            isRecentlyHurt = true;
+
             StartCoroutine(ResetHurtState());
         }
     }
 
+
     private IEnumerator ResetHurtState()
     {
-        anim.SetBool("Hurt", true);
-        agent.enabled = false;
-        yield return new WaitForSeconds(0.65f);
-        agent.enabled = true;
-        anim.SetBool("Hurt", false);
+        if (counterDead == 0) {
+            anim.SetBool("Hurt", true);
+            agent.enabled = false;
+            yield return new WaitForSeconds(1f);
+            agent.enabled = true;
+            anim.SetBool("Hurt", false);
+        }
+
 
         //Enemigo muere
-        if (health <= 0)
+        if (health <= 0 && !isDying)
         {
-            sliderHealth.gameObject.SetActive(false);
-            bool randomDead = UnityEngine.Random.Range(0, 2) == 0;
-            if (randomDead)
+            if (counterDead < 2)
             {
+                isDying = true;
+                agent.enabled = false;
                 anim.SetBool("Dead", true);
-                anim.SetBool("randomDead", true);
+                yield return new WaitForSeconds(5);
+                anim.SetBool("revive", true);
+
+                yield return new WaitForSeconds(2);
+
+                // Empujamos al jugador
+
+                Vector3 direction = player.transform.position - transform.position;
+                direction.y = 0f;
+                direction.Normalize();
+                if (counterDead == 0) Movement.instance.ApplyForce(direction, 15);
+                if (counterDead == 1) Movement.instance.ApplyForce(direction, 30);
+
+                yield return new WaitForSeconds(1);
+                cameraMovement.instance.ShakeVertical(2f,1.5f);
+                cameraMovement.instance.ShakeVertical(3f, 1.5f);
+
+                if (counterDead == 0)
+                {
+                    health = 100;
+                    agent.speed = 16;
+                    bodyDamage = 25;
+                }
+                if (counterDead == 1) health = 1;
+
+                anim.SetBool("Dead", false);
+                anim.SetBool("revive", false);
+                counterDead++;
+                agent.enabled = true;
+                isDying = false;
+
             }
+
+
             else
             {
                 anim.SetBool("Dead", true);
-                anim.SetBool("randomDead", false);
-            }
-            yield return new WaitForSeconds(4);
-            agent.enabled = false;
+                yield return new WaitForSeconds(4);
+                sliderHealth.gameObject.SetActive(false);
 
-            for (int i = 0; i < 40; i++)
-            {
-                transform.position -= Vector3.up * 0.05f;
-                yield return new WaitForSeconds(0.05f);
+                agent.enabled = false;
+
+                for (int i = 0; i < 40; i++)
+                {
+                    transform.position -= Vector3.up * 0.05f;
+                    yield return new WaitForSeconds(0.05f);
+                }
+                Destroy(gameObject);
             }
-            Destroy(gameObject);
         }
     }
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, alertRange);
-
 
         if (canShoot)
             Gizmos.color = Color.blue;
@@ -180,6 +247,19 @@ public class bossController : MonoBehaviour
         if (!canShoot)
             Gizmos.color = Color.black;
         Gizmos.DrawWireSphere(transform.position, attackRange);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        
+        if (other.CompareTag("Bullet"))
+        {
+            GetHurt(other.gameObject.GetComponent<ProjectileBullet>().damage);
+        }
+        else if (other.CompareTag("Arrow"))
+        {
+            GetHurt(other.gameObject.GetComponent<ArrowBullet>().damage);
+        }
     }
 
 }
