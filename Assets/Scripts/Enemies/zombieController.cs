@@ -35,6 +35,7 @@ public class zombieController : MonoBehaviour
     public AudioSource zombieDamage;
     public AudioSource attackAudio;
 
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -42,16 +43,16 @@ public class zombieController : MonoBehaviour
         sliderHealth.maxValue = health;
         sliderHealth.gameObject.SetActive(false);
         player = GameObject.FindGameObjectWithTag("Player").transform;
-
     }
     void Update()
     {
-        if (bossController.instance != null && bossController.instance.allZombieDead) bodyDamage = 200;
+        if (bossController.instance != null && bossController.instance.allZombieDead) GetHurt(1000);
         if (health > 0 && Time.timeScale == 1)
         { //Chequea Estado
             checkState();
         }
     }
+
 
     private void checkState()
     {
