@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class SMG : MonoBehaviour
 {
-
     
     public float cadency;
     float timeLastShoot;
+
+    Animator anim;
 
     //Variables Raycast
     public Transform shootingTransform;
@@ -16,9 +17,19 @@ public class SMG : MonoBehaviour
     public LineRenderer line;
     public Light lights;
 
+    private void Awake()
+    {
+        anim = GetComponent<Animator>();
+    }
+
     private void Start()
     {
         cadency = 60 / cadency;
+    }
+
+    private void Update()
+    {
+        ADS();
     }
 
     public void ShootCreation()
@@ -46,5 +57,17 @@ public class SMG : MonoBehaviour
         yield return new WaitForEndOfFrame();
         lights.enabled = false;
         line.enabled = false;
+    }
+
+    void ADS()
+    {
+        if (Input.GetMouseButton(1))
+        {
+            anim.SetBool("isAiming", true);
+        }
+        else
+        {
+            anim.SetBool("isAiming", false);
+        }
     }
 }
