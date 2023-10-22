@@ -29,6 +29,13 @@ public class zombieExplode : MonoBehaviour
     public AudioSource alarmSound;
     public AudioSource explosionSound;
 
+    public int appearanceNumber;
+    public bool appeared = true;
+
+    private void Start()
+    {
+        if (appeared == false) gameObject.SetActive(false);
+    }
 
     private void Update()
     {

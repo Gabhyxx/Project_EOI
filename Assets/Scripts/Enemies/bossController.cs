@@ -31,6 +31,13 @@ public class bossController : MonoBehaviour
 
     private bool isDying = false;
     public bool allZombieDead = false;
+    private bool oleade1Begin = false;
+    private bool oleade2Begin = false;
+    private bool oleade3Begin = false;
+
+    public List<GameObject> oleade1;
+    public List<GameObject> oleade2;
+    public List<GameObject> oleade3;
 
     private void Awake()
     {
@@ -71,6 +78,10 @@ public class bossController : MonoBehaviour
         // El enemigo te sigue
         if (VisionLine())
         {
+            if (!oleade1Begin && counterDead == 0) Generate(oleade1);
+            if (!oleade1Begin && counterDead == 1) Generate(oleade2);
+            if (!oleade1Begin && counterDead == 2) Generate(oleade3);
+
             anim.SetBool("Hunting", true);
             anim.SetFloat("velocity", agent.velocity.magnitude);
 
@@ -90,6 +101,18 @@ public class bossController : MonoBehaviour
         }
     }
 
+    public void Generate(List<GameObject> numberOleade)
+    {
+
+        foreach (GameObject zombie in numberOleade)
+        {
+            if (zombie != null && !zombie.activeSelf)
+            {
+                zombie.SetActive(true);
+            }
+        }
+    }
+
     bool VisionLine()
     {
 
@@ -106,7 +129,7 @@ public class bossController : MonoBehaviour
         if (Physics.Raycast(transform.position, direction, out hitInfo, distance, ~LayerMask.GetMask("Trigger"), QueryTriggerInteraction.Ignore))
         {
             // Si el rayo golpea al player devuelve true
-            if (hitInfo.collider.CompareTag("HitboxPlayer"))
+            if (hitInfo.collider.CompareTag("Player"))
             {
                 return true;
             }
@@ -175,7 +198,7 @@ public class bossController : MonoBehaviour
 
     private IEnumerator ResetHurtState()
     {
-        if (counterDead == 0) {
+        if ( health > 0 && counterDead == 0) {
             anim.SetBool("Hurt", true);
             agent.enabled = false;
             yield return new WaitForSeconds(2f);
@@ -187,9 +210,9 @@ public class bossController : MonoBehaviour
         //Enemigo muere
         if (health <= 0 && !isDying)
         {
+            StartCoroutine(allDead());
             if (counterDead < 2)
             {
-                StartCoroutine(allDead());
                 isDying = true;
                 agent.enabled = false;
                 anim.SetBool("Dead", true);
@@ -250,6 +273,8 @@ public class bossController : MonoBehaviour
 
     private IEnumerator allDead()
     {
+
+
         allZombieDead = true;
         yield return new WaitForSeconds(2f);
         allZombieDead = false;
