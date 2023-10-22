@@ -8,33 +8,39 @@ using UnityEngine.UI;
 
 public class zombieController : MonoBehaviour
 {
-    public Transform player;
 
-    bool isHunting;
-
-    public float alertRange, attackRange;
-    public bool canShoot;
-    public LayerMask playerMask;
-    NavMeshAgent agent;
-    Animator anim;
-
+    [Header("Health")]
     public float health = 100;
-
-    [Header("Shoot")]
-    public GameObject projectile;
-    public Transform shootPoint;
-    public float shootForce;
-    public float cadency;
-    float timeLastShoot;
-
-    public GameObject healthText;
+    private GameObject healthText;
     public int bodyDamage;
     public int timeCounter;
     public Slider sliderHealth;
 
+    [Header("Movement")]
+    private Transform player;
+    public float alertRange, attackRange;
+    public LayerMask playerMask;
+
+    private bool isHunting;
+    private NavMeshAgent agent;
+
+    [Header("Shoot")]
+    public bool canShoot;
+    public GameObject projectile;
+    public Transform shootPoint;
+    public float shootForce;
+    public float cadency;
+
+    private float timeLastShoot;
+
+    [Header("Shoot")]
+    public bool canExplode;
+
+    [Header("Audio")]
     public AudioSource zombieDamage;
     public AudioSource attackAudio;
 
+    private Animator anim;
 
     void Start()
     {
@@ -43,10 +49,11 @@ public class zombieController : MonoBehaviour
         sliderHealth.maxValue = health;
         sliderHealth.gameObject.SetActive(false);
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        healthText = GameObject.FindGameObjectWithTag("HealthText");
     }
     void Update()
     {
-        if (bossController.instance != null && bossController.instance.allZombieDead) GetHurt(1000);
+        if ((bossController.instance != null && bossController.instance.allZombieDead) || Movement.instance.allDead) GetHurt(1000);
         if (health > 0 && Time.timeScale == 1)
         { //Chequea Estado
             checkState();
@@ -60,7 +67,7 @@ public class zombieController : MonoBehaviour
         isHunting = Physics.CheckSphere(transform.position, alertRange, playerMask);
         float distance = Vector3.Distance(transform.position, player.position);
         // El enemigo te sigue
-        if (isHunting && VisionLine())
+        if (isHunting || VisionLine())
         {
             anim.SetBool("Hunting", true);
             anim.SetFloat("velocity", agent.velocity.magnitude);
@@ -118,7 +125,7 @@ public class zombieController : MonoBehaviour
     {
 
         agent.velocity = Vector3.zero;
-        if (!canShoot)
+        if (!canShoot && !canExplode)
         {
             if (!attackAudio.isPlaying) attackAudio.Play();
             anim.SetBool("Attacking", true);
@@ -126,7 +133,7 @@ public class zombieController : MonoBehaviour
 
         }
 
-        else if (Time.time > timeLastShoot + cadency)
+        else if (Time.time > timeLastShoot + cadency && !canExplode)
         {
             if (!attackAudio.isPlaying) attackAudio.Play();
             anim.Play("roar");

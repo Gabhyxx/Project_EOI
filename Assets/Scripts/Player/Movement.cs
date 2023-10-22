@@ -13,6 +13,8 @@ public class Movement : MonoBehaviour
 
     private bool canDash = true;
     private Rigidbody rig;
+    public bool FirstTime;
+    public bool allDead;
 
     private void Awake()
     {
@@ -28,6 +30,7 @@ public class Movement : MonoBehaviour
     private void Update()
     {
         Move();
+        if (!FirstTime) CheckAllDead();
     }
 
     private void Move()
@@ -60,6 +63,24 @@ public class Movement : MonoBehaviour
         rig.AddForce(transform.forward * dashForce, ForceMode.Impulse);
         rig.velocity = Vector3.zero; 
         StartCoroutine(ResetDashCooldown());
+    }
+
+    public void CheckAllDead()
+    {
+        if (transform.position.x>102)
+        {
+            allDead = true;
+            
+            StartCoroutine(CoroutineAllDead());
+
+            FirstTime = true;
+        }
+    }
+
+    IEnumerator CoroutineAllDead()
+    {
+        yield return new WaitForSeconds(10f);
+        allDead = false;
     }
 
     private IEnumerator ResetDashCooldown()

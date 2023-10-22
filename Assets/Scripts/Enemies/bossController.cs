@@ -39,6 +39,8 @@ public class bossController : MonoBehaviour
     public List<GameObject> oleade2;
     public List<GameObject> oleade3;
 
+    public bool bossEncounter;
+
     private void Awake()
     {
         instance = this;
@@ -78,6 +80,7 @@ public class bossController : MonoBehaviour
         // El enemigo te sigue
         if (VisionLine())
         {
+            bossEncounter = true;
             if (!oleade1Begin && counterDead == 0) Generate(oleade1);
             if (!oleade1Begin && counterDead == 1) Generate(oleade2);
             if (!oleade1Begin && counterDead == 2) Generate(oleade3);

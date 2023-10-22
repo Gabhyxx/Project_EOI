@@ -7,39 +7,36 @@ using UnityEngine.AI;
 
 public class zombieExplode : MonoBehaviour
 {
-    public Transform player;
-    public LayerMask layerPlayer;
-    public float explosionRange;
-    public ParticleSystem explosionParticles;
-
-    public float shakeAmount;
-    public float shakeTime;
-    public float shakeSpeed;
-
+    [Header("Exploting")]
     public AnimationCurve scaleCurve = AnimationCurve.EaseInOut(0f, 0f, 1f, 1f);
-    public float scaleAmount;
-    public float scaleTime;
-
-    public GameObject healthText;
-    public int damage;
-
+    public float scaleAmount, scaleTime;
+    public ParticleSystem explosionParticles;
+    public float explosionRange;
+    public float explosionDamageRange;
     public float timeCounter;
-    public int bodyDamage;
 
+    private bool isExploting = false;
+
+    [Header("Player")]
+    public int damage;
+    private Transform player;
+    public LayerMask layerPlayer;
+    private GameObject healthText;
+
+    [Header("Sounds")]
     public AudioSource alarmSound;
     public AudioSource explosionSound;
 
-    public int appearanceNumber;
-    public bool appeared = true;
 
     private void Start()
     {
-        if (appeared == false) gameObject.SetActive(false);
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        healthText = GameObject.FindGameObjectWithTag("HealthText");
     }
 
     private void Update()
     {
-        if (canExplode() && GetComponent<zombieController>().health > 0)
+        if (canExplode() && GetComponent<zombieController>().health > 0 && isExploting == false)
         {
             Explode();
         }
@@ -68,13 +65,13 @@ public class zombieExplode : MonoBehaviour
     private void Explode()
     {
         if (!alarmSound.isPlaying) alarmSound.Play();
+        isExploting = true;
         StartCoroutine(ExplosionCoroutine());
 
     }
 
     private IEnumerator ExplosionCoroutine()
     {
-        Coroutine shakeCoroutine = StartCoroutine(SimpleShakeCoroutine());
         float currentScaleTime = 0f;
         Vector3 originalScale = transform.localScale;
         while (currentScaleTime < scaleTime)
@@ -86,50 +83,24 @@ public class zombieExplode : MonoBehaviour
             yield return null;
         }
 
-        yield return shakeCoroutine;
-
+        explosionSound.Play();
+        alarmSound.Stop();
 
         ParticleSystem explossionEffect = Instantiate(explosionParticles, transform.position, Quaternion.identity);
 
-        Destroy(gameObject);
-
-
         //hacer daño al jugador
+
         Vector3 direction = (player.position - transform.position).normalized;
         float distance = Vector3.Distance(transform.position, player.position);
 
-        RaycastHit hitInfo;
+        if (distance < explosionDamageRange) healthText.GetComponent<HealthInfo>().TakeDamage(damage);
 
-        if (Physics.Raycast(transform.position, direction, out hitInfo, distance, ~LayerMask.GetMask("Trigger"), QueryTriggerInteraction.Ignore))
-        {
-            // Si el rayo golpea al player devuelve true
-            if (hitInfo.collider.CompareTag("HitboxPlayer") && distance < explosionRange)
-            {
-                healthText.GetComponent<HealthInfo>().TakeDamage(damage);
-            }
-        }
-    }
-
-
-    private IEnumerator SimpleShakeCoroutine()
-    {
-        Vector3 initialPosition = transform.localPosition;
-        float endTime = Time.time + shakeTime;
-        while (Time.time < endTime)
-        {
-            Vector3 randomPoint = UnityEngine.Random.insideUnitSphere * shakeAmount;
-            transform.localPosition = initialPosition + randomPoint;
-            yield return null;
-        }
-        alarmSound.Stop();
-        explosionSound.Play();
-
-        transform.localPosition = initialPosition;
+        Destroy(gameObject);
     }
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, explosionRange);
+        Gizmos.DrawWireSphere(transform.position, explosionDamageRange);
     }
 }

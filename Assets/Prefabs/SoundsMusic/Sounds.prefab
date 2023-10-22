@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 631590754826252065}
   m_Layer: 0
   m_Name: zombieDamage
-  m_TagString: Untagged
+  m_TagString: zombieDamage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -268,7 +268,7 @@ GameObject:
   - component: {fileID: 6934265184678935718}
   m_Layer: 0
   m_Name: zombieAttack
-  m_TagString: Sounds
+  m_TagString: zombieAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -434,7 +434,7 @@ GameObject:
   - component: {fileID: 307940657308443918}
   m_Layer: 0
   m_Name: Threw Up Sound
-  m_TagString: Untagged
+  m_TagString: Threw Up
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -562,7 +562,7 @@ GameObject:
   - component: {fileID: 7484891617620445770}
   m_Layer: 0
   m_Name: Alarm
-  m_TagString: Sounds
+  m_TagString: Alarm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -818,7 +818,7 @@ GameObject:
   - component: {fileID: 1364016273911980270}
   m_Layer: 0
   m_Name: Explosion
-  m_TagString: Sounds
+  m_TagString: Explosion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
