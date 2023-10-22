@@ -27,6 +27,11 @@ public class AmmoInfo : MonoBehaviour
             ammoUncharged = weapon.GetComponent<BowWeapon>().maxAmmo;
             ammoCharged = weapon.GetComponent<BowWeapon>().chargedAmmo;
         }
+        else if (player.GetComponent<PlayerShooting>().GetCurrentWeapon() == 2)
+        {
+            ammoUncharged = weapon.GetComponent<SMG>().maxAmmoSMG;
+            ammoCharged = weapon.GetComponent<SMG>().ammoSMG;
+        }
     }
     // Update is called once per frame
     void Update()
@@ -41,6 +46,18 @@ public class AmmoInfo : MonoBehaviour
             ammoCharged = weapon.GetComponent<BowWeapon>().chargedAmmo;
             ammoUncharged = weapon.GetComponent<BowWeapon>().maxAmmo;
         }
-            textComponent.text = ammoCharged + "/" + ammoUncharged;
+        else if (player.GetComponent<PlayerShooting>().GetCurrentWeapon() == 2)
+        {
+            ammoUncharged = weapon.GetComponent<SMG>().maxAmmoSMG;
+            ammoCharged = weapon.GetComponent<SMG>().ammoSMG;
+        }
+        textComponent.text = ammoCharged + "/" + ammoUncharged;
+    }
+
+
+    //Para optimizar. By Gabhyxx c:
+    void ammunitionInfo()
+    {
+
     }
 }
