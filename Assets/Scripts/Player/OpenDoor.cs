@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class OpenDoor : MonoBehaviour
 {
-    public bool blocked;
-    //public float distanceToOpen;
+    [SerializeField] bool blocked;
+    [SerializeField] float distanceToOpen;
 
-    public Transform player;
+    [SerializeField] Transform player;
 
-    public Animator anim;
+    Animator anim;
 
     void Awake()
     {
@@ -25,9 +25,9 @@ public class OpenDoor : MonoBehaviour
 
     public void Door()
     {
-        //float distance = Vector3.Distance(transform.position, player.position);
+        float distance = Vector3.Distance(transform.position, player.position);
 
-        if (blocked = true && Input.GetKeyDown(KeyCode.F))
+        if (blocked = true && Input.GetKeyDown(KeyCode.E) && distance < distanceToOpen)
         {
             blocked = false;
             anim.Play("Open");
