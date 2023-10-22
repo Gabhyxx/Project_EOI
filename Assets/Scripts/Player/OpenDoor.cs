@@ -5,25 +5,31 @@ using UnityEngine;
 public class OpenDoor : MonoBehaviour
 {
     public bool blocked;
-    public float distanceToOpen;
+    //public float distanceToOpen;
 
     public Transform player;
 
-    private Animator anim;
+    public Animator anim;
 
-    void Start()
+    void Awake()
     {
-        anim = GetComponent<Animator>(); 
+        anim = GetComponent<Animator>();
+        blocked = true;
     }
 
 
     void Update()
     {
-        float distance = Vector3.Distance(transform.position, player.position);
+        Door();
+    }
 
-        if (!blocked && distance < distanceToOpen)
+    public void Door()
+    {
+        //float distance = Vector3.Distance(transform.position, player.position);
+
+        if (blocked = true && Input.GetKeyDown(KeyCode.F))
         {
-            blocked = true;
+            blocked = false;
             anim.Play("Open");
         }
     }
