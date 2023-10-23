@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -15.491104, y: 4.115908, z: 12.218242}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4294137168650204236}
@@ -77,29 +77,11 @@ MonoBehaviour:
   playerMask:
     serializedVersion: 2
     m_Bits: 8
-  health: 5
+  health: 300
   healthText: {fileID: 0}
   bodyDamage: 15
   timeCounter: 0
   allZombieDead: 0
-  oleade1:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  oleade2:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   oleade3:
   - {fileID: 0}
   - {fileID: 2200421258270073961}

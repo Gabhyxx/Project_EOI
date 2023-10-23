@@ -22,6 +22,13 @@ public class DeathScreen : MonoBehaviour
         {
             KillPlayer();
         }
+
+        if (deathScreen.activeSelf)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Time.timeScale = 0;
+        }
+
     }
 
     private void KillPlayer()

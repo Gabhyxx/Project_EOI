@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class bossController : MonoBehaviour
@@ -32,12 +33,8 @@ public class bossController : MonoBehaviour
 
     private bool isDying = false;
     public bool allZombieDead = false;
-    private bool oleade1Begin = false;
-    private bool oleade2Begin = false;
     private bool oleade3Begin = false;
 
-    public List<GameObject> oleade1;
-    public List<GameObject> oleade2;
     public List<GameObject> oleade3;
 
     public bool bossEncounter;
@@ -82,9 +79,7 @@ public class bossController : MonoBehaviour
         if (VisionLine())
         {
             bossEncounter = true;
-            if (!oleade1Begin && counterDead == 0) Generate(oleade1);
-            if (!oleade1Begin && counterDead == 1) Generate(oleade2);
-            if (!oleade1Begin && counterDead == 2) Generate(oleade3);
+            if (!oleade3Begin && counterDead == 2) Generate(oleade3);
 
             anim.SetBool("Hunting", true);
             anim.SetFloat("velocity", agent.velocity.magnitude);
@@ -107,7 +102,7 @@ public class bossController : MonoBehaviour
 
     public void Generate(List<GameObject> numberOleade)
     {
-
+        oleade3Begin = true;
         foreach (GameObject zombie in numberOleade)
         {
             if (zombie != null && !zombie.activeSelf)
@@ -271,6 +266,7 @@ public class bossController : MonoBehaviour
                     yield return new WaitForSeconds(0.05f);
                 }
                 Destroy(gameObject);
+                SceneManager.LoadScene(4);
             }
         }
     }

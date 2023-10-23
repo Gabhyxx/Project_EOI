@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     public int epinephrineInjection;
     public int ammo9mm;
     public int arrowQuiver;
-    
+
     public void SavePlayer()
     {
         float[] position = { GetComponent<Transform>().position.x, GetComponent<Transform>().position.y, GetComponent<Transform>().position.z };
