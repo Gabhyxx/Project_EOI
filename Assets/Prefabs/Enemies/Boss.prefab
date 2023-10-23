@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 814048234222156411}
   m_Layer: 0
   m_Name: Boss
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -81,7 +81,6 @@ MonoBehaviour:
   healthText: {fileID: 0}
   bodyDamage: 15
   timeCounter: 0
-  sliderHealth: {fileID: 0}
   allZombieDead: 0
   oleade1:
   - {fileID: 0}
@@ -118,6 +117,7 @@ MonoBehaviour:
   - {fileID: 4800557330818127464}
   - {fileID: 5448011674470858428}
   - {fileID: 1793010312366411395}
+  bossEncounter: 0
 --- !u!136 &7886784130827775312
 CapsuleCollider:
   m_ObjectHideFlags: 0

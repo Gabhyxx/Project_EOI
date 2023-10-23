@@ -25,7 +25,7 @@ public class bossController : MonoBehaviour
     public GameObject healthText;
     public int bodyDamage;
     public int timeCounter;
-    public Slider sliderHealth;
+    //public Slider sliderHealth;
 
     private bool isRecentlyHurt = false;
     private float lastHurtTime;
@@ -52,8 +52,8 @@ public class bossController : MonoBehaviour
 
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
-        sliderHealth.maxValue = health;
-        sliderHealth.gameObject.SetActive(false);
+        //sliderHealth.maxValue = health;
+        //sliderHealth.gameObject.SetActive(false);
 
     }
 
@@ -187,9 +187,9 @@ public class bossController : MonoBehaviour
         if (health > 0)
         {
             // Enemigo sufre daño
-            sliderHealth.gameObject.SetActive(true);
+            //sliderHealth.gameObject.SetActive(true);
             health -= damage;
-            sliderHealth.value = health;
+            //sliderHealth.value = health;
 
             // Guardar el tiempo en el que fue herido
             lastHurtTime = Time.time;
@@ -261,7 +261,7 @@ public class bossController : MonoBehaviour
             {
                 anim.SetBool("Dead", true);
                 yield return new WaitForSeconds(8);
-                sliderHealth.gameObject.SetActive(false);
+                //sliderHealth.gameObject.SetActive(false);
 
                 agent.enabled = false;
 

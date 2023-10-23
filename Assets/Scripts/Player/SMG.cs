@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal;
 using UnityEngine;
 
 public class SMG : MonoBehaviour
@@ -13,7 +14,10 @@ public class SMG : MonoBehaviour
     float timeLastShoot;
 
     Animator anim;
-    
+    AudioSource audioSource;
+    [SerializeField] AudioClip reloadClip;
+    [SerializeField] AudioClip shootingClip;
+
 
     //Variables Raycast
     public Transform shootingTransform;
@@ -27,6 +31,7 @@ public class SMG : MonoBehaviour
     private void Awake()
     {
         anim = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Start()
@@ -37,6 +42,7 @@ public class SMG : MonoBehaviour
     private void Update()
     {
         ADS();
+        Animating();
         SMGReload();
         Debug.DrawRay(shootingTransform.position, shootingTransform.forward * range, Color.red);
     }
@@ -67,10 +73,12 @@ public class SMG : MonoBehaviour
             {
                 hitInfo.collider.gameObject.GetComponent<bossController>().GetHurt(damage);
             }
-            else
+            else if (hitInfo.collider.tag == "Enemy")
             {
+                Debug.Log(hitInfo.collider.name);
                 hitInfo.collider.gameObject.GetComponent<zombieController>().GetHurt(damage);
             }
+            
         }
         else
         {
@@ -78,6 +86,8 @@ public class SMG : MonoBehaviour
         }
         yield return new WaitForEndOfFrame();
         ammoSMG--;
+        audioSource.clip = shootingClip;
+        audioSource.Play();
         lights.enabled = false;
         line.enabled = false;
     }
@@ -96,29 +106,35 @@ public class SMG : MonoBehaviour
 
     void SMGReload()
     {
-        if ((ammoSMG <= 0 && maxAmmoSMG > 0) || (ammoSMG < 30 && maxAmmoSMG > 0 && Input.GetKeyDown(KeyCode.R)))
+        if (Input.GetKeyDown(KeyCode.R))
         {
-            Invoke("Reloading", 3f);
+            if (ammoSMG == maxAmmoPerMagazine)
+            {
+                ammoSMG = maxAmmoPerMagazine;
+            }
+            else if (maxAmmoSMG <= 0)
+            {
+                maxAmmoSMG = 0;
+            }
+            else
+            {
+                maxAmmoSMG = maxAmmoSMG - maxAmmoPerMagazine;
+                ammoSMG = maxAmmoPerMagazine;
+            }
         }
-        else if (maxAmmoSMG <= 0 && ammoSMG <= 0)
-        {
-            maxAmmoSMG = 0;
-            ammoSMG = 0;
-        }
-        else if (maxAmmoSMG <= 0)
-        {
-            maxAmmoSMG = 0;
-        }
-    }
-
-    void Reloading()
-    {
-        ammoSMG = 30;
-        maxAmmoSMG = maxAmmoSMG - 30; ;
     }
 
     void Animating()
     {
-
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            anim.SetBool("isReloading", true);
+            audioSource.clip = reloadClip;
+            audioSource.Play();
+        }
+        else
+        {
+            anim.SetBool("isReloading", false);
+        }
     }
 }

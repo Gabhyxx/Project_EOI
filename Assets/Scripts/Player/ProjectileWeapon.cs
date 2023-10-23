@@ -19,9 +19,14 @@ public class ProjectileWeapon : MonoBehaviour
     float timeLastShoot;
     int timePassed = 0;
 
+    AudioSource audioSource;
+    [SerializeField] AudioClip reloadClip;
+    [SerializeField] AudioClip shotClip;
+
     private void Awake()
     {
         recoilAnim = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
     private void Start()
     {
@@ -30,6 +35,7 @@ public class ProjectileWeapon : MonoBehaviour
     private void Update()
     {
         timePassed++;
+        
         RechargingPistol();
         if (Input.GetMouseButton(0))
         {
@@ -41,6 +47,8 @@ public class ProjectileWeapon : MonoBehaviour
     {
         if(Time.time > timeLastShoot + cadency && chargedAmmo > 0)
         {
+            audioSource.clip = shotClip;
+            audioSource.Play();
             chargedAmmo--;
             cloneProjectile = Instantiate(pistolProjectile, shootingTransform.position, shootingTransform.rotation);
             cloneProjectile.GetComponent<Rigidbody>().AddForce(transform.forward * projectileForce);
@@ -56,6 +64,8 @@ public class ProjectileWeapon : MonoBehaviour
     {
         if(chargedAmmo < maxAmmo && timePassed % 15f == 0)
         {
+            audioSource.clip = reloadClip;
+            audioSource.Play();
             chargedAmmo++;
         }
     }
