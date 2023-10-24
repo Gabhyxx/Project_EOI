@@ -75,7 +75,6 @@ public class SMG : MonoBehaviour
             }
             else if (hitInfo.collider.tag == "Enemy")
             {
-                Debug.Log(hitInfo.collider.name);
                 hitInfo.collider.gameObject.GetComponent<zombieController>().GetHurt(damage);
             }
             
