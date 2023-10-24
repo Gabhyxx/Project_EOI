@@ -13,6 +13,7 @@ public class MainMenu : MonoBehaviour
     public Button exitGameButton;
     public GameObject menuScreen;
     public GameObject optionsScreen;
+    public GameObject player;
 
     public AudioSource clickAudio;
 
@@ -32,11 +33,13 @@ public class MainMenu : MonoBehaviour
 
         if (buttonPressed == newGameButton)
         {
-            SceneManager.LoadScene("AllLevel", LoadSceneMode.Single);
+            SceneManager.LoadScene("LevelDemo", LoadSceneMode.Single);
+            Player.isLoad = false;
         }
         if (buttonPressed == loadGameButton)
         {
-            SceneManager.LoadScene("MallLevel", LoadSceneMode.Single);
+            SceneManager.LoadScene("LevelDemo", LoadSceneMode.Single);
+            Player.isLoad = true;
         }
         if (buttonPressed == optionGameButton)
         {

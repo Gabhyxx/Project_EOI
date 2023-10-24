@@ -22,6 +22,13 @@ public class DeathScreen : MonoBehaviour
         {
             KillPlayer();
         }
+
+        if (deathScreen.activeSelf)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Time.timeScale = 0;
+        }
+
     }
 
     private void KillPlayer()
@@ -29,13 +36,18 @@ public class DeathScreen : MonoBehaviour
         deathScreen.SetActive(true);
         GetComponent<Movement>().enabled = false;
         Invoke("ToMainMenu",5);
-        //Time.timeScale = 0;
     }
 
-    private void ToMainMenu()
+    public void ToMainMenu()
     {
         Cursor.lockState = CursorLockMode.None;
 
         SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+        
+    }
+
+    public void ResumeTime()
+    {
+        Time.timeScale = 1;
     }
 }

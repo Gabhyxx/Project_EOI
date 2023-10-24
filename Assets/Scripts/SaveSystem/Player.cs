@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 public class Player : MonoBehaviour
 {
@@ -9,7 +12,16 @@ public class Player : MonoBehaviour
     public int epinephrineInjection;
     public int ammo9mm;
     public int arrowQuiver;
-    
+
+    public static bool isLoad;
+
+    private void Start()
+    {
+        if (isLoad)
+        {
+            LoadPlayer();
+        }
+    }
     public void SavePlayer()
     {
         float[] position = { GetComponent<Transform>().position.x, GetComponent<Transform>().position.y, GetComponent<Transform>().position.z };
@@ -20,7 +32,7 @@ public class Player : MonoBehaviour
     public void LoadPlayer()
     {
         PlayerData data = SaveSystem.LoadPlayer();
-
+        
         health = data.health;
         batteries = data.batteries;
         epinephrineInjection = data.epinephrineInjection;
@@ -33,4 +45,6 @@ public class Player : MonoBehaviour
         position.z = data.position[2];
         transform.position = position;
     }
+
+   
 }
