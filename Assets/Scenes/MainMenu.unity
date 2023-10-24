@@ -455,6 +455,22 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5676603935970691478, guid: 6e01c6c47937e7d4e81b5d2af6fb5990, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5676603935970691478, guid: 6e01c6c47937e7d4e81b5d2af6fb5990, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5676603935970691478, guid: 6e01c6c47937e7d4e81b5d2af6fb5990, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 5676603935970691478, guid: 6e01c6c47937e7d4e81b5d2af6fb5990, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
     - target: {fileID: 5867932023213149132, guid: 6e01c6c47937e7d4e81b5d2af6fb5990, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -507,7 +523,7 @@ GameObject:
   - component: {fileID: 1002438116}
   m_Layer: 0
   m_Name: Camera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
