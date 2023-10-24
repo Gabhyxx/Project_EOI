@@ -159,8 +159,8 @@ Camera:
   m_GameObject: {fileID: 307959479}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -184,7 +184,7 @@ Camera:
   near clip plane: 0.01
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
+  orthographic: 1
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
@@ -416,6 +416,7 @@ GameObject:
   - component: {fileID: 1396678268}
   - component: {fileID: 1396678267}
   - component: {fileID: 1396678266}
+  - component: {fileID: 1396678270}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -452,12 +453,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -472,7 +473,7 @@ Canvas:
   m_GameObject: {fileID: 1396678265}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -506,6 +507,102 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!82 &1396678270
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1396678265}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -8707580948733405736, guid: 7667e0d020840b14ebd080b3a7e017db, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 9025772120ed8424abf8557a02b8c349, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.25
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1705911655
 GameObject:
   m_ObjectHideFlags: 0
@@ -518,6 +615,7 @@ GameObject:
   - component: {fileID: 1705911659}
   - component: {fileID: 1705911658}
   - component: {fileID: 1705911657}
+  - component: {fileID: 1705911660}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -585,20 +683,24 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\n\n\n\n\n\n\n\n\n\nnot you, John Riccitiello, you can go fuck yourself
-    with a toaster\n\n\n\n\n\n\n\n\nAnd you :)\n\n\n\n\n\n\n\n\nExplosion by Iwiploppenisse\r\nAlarm
-    & Explosion by Johnnie_Holiday\r\nDamaged 2 \u2013 The Ridge \u2013 Host by bananplyte\r\nMouse
-    Click by deleted_user_4772965\r\nZombie Bite by Lukeo135\r\nZombie_Attack_1 by
-    MisterKidX\r\n\nFreeSound\nAudio FX\n\nHuman Haven by Bolted Redemption\nMusic\n\nRecurve
-    Bow by MrEliptik\nSketchfab:\n\nConifers [BOTD] by forst\r\nFountain Prop by
-    Thunderent\r\nSkybox Series Free by Avionx\r\nFirst Aid Set by GeeKay 3D\r\nHungry
-    Zombie by Andryuha1981\r\nSci-Fi Pistol [PBR] by Star Games Studio\nP90 HD by
-    255 pixel Studios\n\nUnity Asset Store:\nAssets\n\nGitHub Assistant\nJuan Jos\xE9
-    Rodr\xEDguez de Pra Avil\xE9s \"JotaJueves\"\n\nGame Designer\nJos\xE9 Gabriel
-    \"Gabhyxx\" Pe\xF1a Garc\xEDa\n\nProgramadores\nJos\xE9 Gabriel \"Gabhyxx\" Pe\xF1a
-    Garc\xEDa\nMario Pic\xF3 Busquier \"Davter\"\nJuan Jos\xE9 Rodr\xEDguez de Pra
-    Avil\xE9s \"JotaJueves\"  \n\nDirector\nJos\xE9 Gabriel \"Gabhyxx\" Pe\xF1a Garc\xEDa\n\n\nAguacate
-    Games\n"
+  m_text: "Aguacate Games\r\n\r\n\n\r\n\n\n\nDirector\r\nJos\xE9 Gabriel \"Gabhyxx\"
+    Pe\xF1a Garc\xEDa\r\n\r\n\r\nMain Programmers\r\nJuan Jos\xE9 Rodr\xEDguez de
+    Pra Avil\xE9s \"JotaJueves\"\r\nMario Pic\xF3 Busquier \"Davter\"\r\n\r\n\r\nJunior
+    Programmer\r\nJos\xE9 Gabriel \"Gabhyxx\" Pe\xF1a Garc\xEDa\r\n\r\n\r\nGame Designer\r\nJos\xE9
+    Gabriel \"Gabhyxx\" Pe\xF1a Garc\xEDa\r\n\r\n\r\nGitHub Assistant\r\nJuan Jos\xE9
+    Rodr\xEDguez de Pra Avil\xE9s \"JotaJueves\"\r\n\r\n\r\n\r\nSpecial Thanks\r\n\r\nImported
+    Assets\r\n\r\nUnity Asset Store\r\nConifers [BOTD] by forst\r\nFountain Prop
+    by Thunderent\r\nSkybox Series Free by Avionx\r\nFirst Aid Set by GeeKay 3D\r\nHungry
+    Zombie by Andryuha1981\r\nSci-Fi Pistol [PBR] by Star Games Studio\r\nP90 HD
+    by 255 pixel Studios\r\nSci-fi Guns SFX Pack by Mikael Vanninen\r\n\r\nFreeSound\r\nExplosion
+    by Iwiploppenisse\r\nAlarm & Explosion by Johnnie_Holiday\r\nDamaged 2 \u2013
+    The Ridge \u2013 Host by bananplyte\r\nMouse Click by deleted_user_4772965\r\nZombie
+    Bite by Lukeo135\r\nZombie_Attack_1 by MisterKidX\r\n\r\nSketchfab\r\nRecurve
+    Bow by MrEliptik\r\n\r\nMusic\r\nGameplay music\r\nHuman Haven by Bolted Redemption\r\n\r\nCredits
+    music\r\nFly Again by TURNSTILE\r\n\r\n\r\nEOI Teachers\r\n\r\nProgramming\r\nElena
+    Blanes Fernandez\r\nVioleta S\xE1ez Botella\r\nAlejandro Montero Vila\r\nDaniel
+    S\xE1nchez L\xF3pez\r\n\r\n\r\nEmployability\r\nAfrica Lucena Montesinos\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nAnd
+    you :)"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -675,6 +777,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1705911655}
   m_CullTransparentMesh: 1
+--- !u!114 &1705911660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1705911655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e91efb7f3283a124a9477fce03346ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2083322735
 GameObject:
   m_ObjectHideFlags: 0
