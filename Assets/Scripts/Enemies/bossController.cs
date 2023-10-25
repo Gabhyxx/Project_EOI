@@ -16,7 +16,6 @@ public class bossController : MonoBehaviour
     int counterDead;
 
     public float attackRange;
-    public bool canShoot;
     public LayerMask playerMask;
     NavMeshAgent agent;
     Animator anim;
@@ -38,6 +37,10 @@ public class bossController : MonoBehaviour
     public List<GameObject> oleade3;
 
     public bool bossEncounter;
+
+    public AudioSource getHurt;
+    public AudioSource punch;
+    public AudioSource growl;
 
     private void Awake()
     {
@@ -147,12 +150,8 @@ public class bossController : MonoBehaviour
     private void Attacking()
     {
         agent.velocity = Vector3.zero;
-        if (!canShoot )
-        {
-            anim.SetBool("Attacking", true);
-            BodyDamage();
-
-        }
+        anim.SetBool("Attacking", true);
+        BodyDamage();
     }
 
     private void BodyDamage()
@@ -160,6 +159,7 @@ public class bossController : MonoBehaviour
         if (timeCounter % 60 == 0)
         {
 
+            punch.Play();
             healthText.GetComponent<HealthInfo>().TakeDamage(bodyDamage);
             timeCounter = 1;
             
@@ -183,6 +183,7 @@ public class bossController : MonoBehaviour
         {
             // Enemigo sufre daño
             sliderHealth.gameObject.SetActive(true);
+            if (!getHurt.isPlaying) getHurt.Play();
             health -= damage;
             sliderHealth.value = health;
 
@@ -221,6 +222,7 @@ public class bossController : MonoBehaviour
                 yield return new WaitForSeconds(2);
 
                 // Empujamos al jugador
+                growl.Play();
 
                 Vector3 direction = player.transform.position - transform.position;
                 direction.y = 0f;
@@ -296,11 +298,6 @@ public class bossController : MonoBehaviour
     private void OnDrawGizmos()
     {
 
-        if (canShoot)
-            Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(transform.position, attackRange);
-
-        if (!canShoot)
             Gizmos.color = Color.black;
         Gizmos.DrawWireSphere(transform.position, attackRange);
     }

@@ -53,7 +53,7 @@ public class zombieController : MonoBehaviour
     }
     void Update()
     {
-        if ((bossController.instance != null && bossController.instance.allZombieDead) || Movement.instance.allDead) GetHurt(1000);
+        if ( bossController.instance.allZombieDead || Movement.instance.allDead) GetHurt(1000);
         if (health > 0 && Time.timeScale == 1)
         { //Chequea Estado
             checkState();

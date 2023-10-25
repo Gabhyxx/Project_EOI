@@ -33,7 +33,6 @@ public class SpawnZombie : MonoBehaviour
             {
                 int randomIndex = Random.Range(0, zombies.Length); // Genera un índice aleatorio
                 GameObject prefabToSpawn = zombies[randomIndex]; // Selecciona un prefab aleatorio
-                Debug.Log("Invoco");
                 Instantiate(prefabToSpawn, transform.position, Quaternion.identity); // Instancia el prefab
             }
         }

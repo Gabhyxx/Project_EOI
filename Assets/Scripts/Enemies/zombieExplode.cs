@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
@@ -83,9 +84,7 @@ public class zombieExplode : MonoBehaviour
             yield return null;
         }
 
-        explosionSound.Play();
-        alarmSound.Stop();
-
+        yield return new WaitForSeconds(0.15f);
         ParticleSystem explossionEffect = Instantiate(explosionParticles, transform.position, Quaternion.identity);
 
         //hacer daño al jugador

@@ -221,7 +221,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7655105886461014018}
-  - {fileID: 5046451636639737675}
+  - {fileID: 7736493429619857833}
   - {fileID: 6691414154978462589}
   m_Father: {fileID: 6281505545798071255}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -267,7 +267,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -1884440088374330799, guid: 7667e0d020840b14ebd080b3a7e017db, type: 2}
-  m_audioClip: {fileID: 8300000, guid: e5307d828ca576f43aaf5d4bd6154973, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 13eace70e1194484d866c918592edeab, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -428,7 +428,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!1 &7960099773022231549
+--- !u!1 &7425954450536470687
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -436,49 +436,49 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5046451636639737675}
-  - component: {fileID: 7717797457431484104}
+  - component: {fileID: 7736493429619857833}
+  - component: {fileID: 4821181454019399647}
   m_Layer: 0
-  m_Name: Explosion
+  m_Name: ExplosionSound
   m_TagString: Explosion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5046451636639737675
+--- !u!4 &7736493429619857833
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7960099773022231549}
+  m_GameObject: {fileID: 7425954450536470687}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: -238.74988, y: -0.5885391, z: -22.617008}
+  m_LocalPosition: {x: -238.74988, y: -0.5885391, z: -22.61701}
   m_LocalScale: {x: 0.6666667, y: 0.6666667, z: 0.6666667}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6548138044642371516}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &7717797457431484104
+--- !u!82 &4821181454019399647
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7960099773022231549}
+  m_GameObject: {fileID: 7425954450536470687}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -1884440088374330799, guid: 7667e0d020840b14ebd080b3a7e017db, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 2baa47c753e1cd4449592eea7a9a4126, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 670c7f7fac1b2924ca17c96814094490, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.552
+  m_Volume: 0.873
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 12
+  Priority: 128
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -492,94 +492,22 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1.0041046
-      inSlope: -500.20065
-      outSlope: -500.20065
+      value: 1
+      inSlope: 0
+      outSlope: 0
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0
-      outWeight: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.004
-      value: 0.5
-      inSlope: -125.05016
-      outSlope: -125.05016
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.008
-      value: 0.25
-      inSlope: -31.26254
-      outSlope: -31.26254
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.032
-      value: 0.0625
-      inSlope: -1.9539088
-      outSlope: -1.9539088
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.064
-      value: 0.03125
-      inSlope: -0.4884772
-      outSlope: -0.4884772
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.128
-      value: 0.015625
-      inSlope: -0.1221193
-      outSlope: -0.1221193
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.256
-      value: 0.0078125
-      inSlope: -0.030529825
-      outSlope: -0.030529825
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.40039942
-      value: 0.9171753
-      inSlope: -7.815635
-      outSlope: -7.815635
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.512
-      value: 0.00390625
-      inSlope: -0.0076324563
-      outSlope: -0.0076324563
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.9888611
-      value: 1.0034953
-      inSlope: -0.002000801
-      outSlope: -0.002000801
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -4187,7 +4115,7 @@ MonoBehaviour:
   timeCounter: 0
   sliderHealth: {fileID: 8911519243208369607}
   alertRange: 30
-  attackRange: 2
+  attackRange: 3
   playerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -4198,7 +4126,7 @@ MonoBehaviour:
   cadency: 0
   canExplode: 1
   zombieDamage: {fileID: 4474741363748074439}
-  attackAudio: {fileID: 7717797457431484104}
+  attackAudio: {fileID: 4821181454019399647}
 --- !u!114 &3186289642056344374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4238,7 +4166,7 @@ MonoBehaviour:
   scaleAmount: 1.1
   scaleTime: 1
   explosionParticles: {fileID: 19800008, guid: c466276509f8b40a59f02d115254fc25, type: 3}
-  explosionRange: 5
+  explosionRange: 7
   explosionDamageRange: 8
   timeCounter: 120
   damage: 30
@@ -4246,7 +4174,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   alarmSound: {fileID: 5609422819008649694}
-  explosionSound: {fileID: 7717797457431484104}
+  explosionSound: {fileID: 4821181454019399647}
 --- !u!136 &545095613287689006
 CapsuleCollider:
   m_ObjectHideFlags: 0

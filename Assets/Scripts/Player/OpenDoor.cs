@@ -9,6 +9,8 @@ public class OpenDoor : MonoBehaviour
 
     [SerializeField] Transform player;
 
+    public GameObject tutorialDoor;
+
     Animator anim;
 
     void Awake()
@@ -20,17 +22,27 @@ public class OpenDoor : MonoBehaviour
 
     void Update()
     {
-        Door();
+        if (blocked) Door();
     }
 
     public void Door()
     {
         float distance = Vector3.Distance(transform.position, player.position);
 
-        if (blocked = true && Input.GetKeyDown(KeyCode.E) && distance < distanceToOpen)
+        if (distance < distanceToOpen)
+        {
+            tutorialDoor.SetActive(true);
+        }
+        else
+        {
+            tutorialDoor.SetActive(false);
+        }
+
+        if (Input.GetKeyDown(KeyCode.E) && distance < distanceToOpen)
         {
             blocked = false;
             anim.Play("Open");
+            tutorialDoor.SetActive(false);
         }
     }
 }
