@@ -22780,7 +22780,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2122900966146746989, guid: 84287e1879518a74c9bc7171c0c41b53, type: 3}
       propertyPath: maxAmmoSMG
-      value: 60
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 2122900966146746989, guid: 84287e1879518a74c9bc7171c0c41b53, type: 3}
       propertyPath: reloadClip
@@ -22965,6 +22965,10 @@ PrefabInstance:
     - target: {fileID: 7243493501611777913, guid: 84287e1879518a74c9bc7171c0c41b53, type: 3}
       propertyPath: arrowForce
       value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 7243493501611777913, guid: 84287e1879518a74c9bc7171c0c41b53, type: 3}
+      propertyPath: chargedAmmo
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8032018052204657637, guid: 84287e1879518a74c9bc7171c0c41b53, type: 3}
       propertyPath: hud
