@@ -42,7 +42,7 @@ public class BowWeapon : MonoBehaviour
         {
             chargedAmmo--;
             cloneArrow = Instantiate(arrowPrefab, arrowInstantiatePoint.position, Camera.main.transform.rotation);
-            cloneArrow.GetComponent<Rigidbody>().AddForce(Camera.main.transform.forward * arrowForce);
+            cloneArrow.GetComponent<Rigidbody>().AddForce(Camera.main.transform.forward * arrowForce + Camera.main.transform.up * arrowForce/2);
 
             Destroy(cloneArrow, 20);
             timeLastShoot = Time.time;
