@@ -233,6 +233,7 @@ public class bossController : MonoBehaviour
                 if (counterDead == 0)
                 {
                     health = 100;
+                    sliderHealth.maxValue = health;
                     sliderHealth.value = health;
                     agent.speed = 16;
                     bodyDamage = 25;
@@ -240,6 +241,7 @@ public class bossController : MonoBehaviour
                 if (counterDead == 1)
                 {
                     health = 1;
+                    sliderHealth.maxValue = health;
                     sliderHealth.value = health;
                     agent.speed = 18;
                     bodyDamage = 30;
@@ -267,8 +269,9 @@ public class bossController : MonoBehaviour
                     transform.position -= Vector3.up * 0.05f;
                     yield return new WaitForSeconds(0.05f);
                 }
+                SceneManager.LoadScene(2);
                 Destroy(gameObject);
-                SceneManager.LoadScene(4);
+                
             }
         }
     }

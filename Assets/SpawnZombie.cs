@@ -19,20 +19,21 @@ public class SpawnZombie : MonoBehaviour
     public bool needZombieEncounter;
     void Start()
     {
-        InvokeRepeating("Spawn", 0f, 10f);
-        playerX = GameObject.FindGameObjectWithTag("Player").transform.position.x;
-        playerY = GameObject.FindGameObjectWithTag("Player").transform.position.y;
+        InvokeRepeating("Spawn", 0f, timeToSpawn);
+
     }
 
     void Spawn()
     {
-        if ( (!needZombieEncounter || bossController.instance.bossEncounter)&& (playerX > playerPosStartX) && (playerX < playerPosFinishX) && (playerY > playerPosStartY) && (playerY < playerPosFinishY))
+        playerX = GameObject.FindGameObjectWithTag("Player").transform.position.x;
+        playerY = GameObject.FindGameObjectWithTag("Player").transform.position.y;
+        if ( (!needZombieEncounter || bossController.instance.bossEncounter) && (playerX > playerPosStartX) && (playerX < playerPosFinishX) && (playerY > playerPosStartY) && (playerY < playerPosFinishY) && bossController.instance.health>0)
         {
             for (int i = 0; i < zombiesNumber; i++)
             {
                 int randomIndex = Random.Range(0, zombies.Length); // Genera un índice aleatorio
                 GameObject prefabToSpawn = zombies[randomIndex]; // Selecciona un prefab aleatorio
-
+                Debug.Log("Invoco");
                 Instantiate(prefabToSpawn, transform.position, Quaternion.identity); // Instancia el prefab
             }
         }
