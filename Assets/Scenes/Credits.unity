@@ -129,7 +129,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1081893313}
     m_Modifications:
     - target: {fileID: 124398734860132618, guid: 390558631ac753b4ab9e921358f5794d, type: 3}
       propertyPath: m_Layer
@@ -309,15 +309,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3821129208560533359, guid: 390558631ac753b4ab9e921358f5794d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.999893
+      value: -12.000107
       objectReference: {fileID: 0}
     - target: {fileID: 3821129208560533359, guid: 390558631ac753b4ab9e921358f5794d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.5202942
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3821129208560533359, guid: 390558631ac753b4ab9e921358f5794d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.0533667
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3821129208560533359, guid: 390558631ac753b4ab9e921358f5794d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -500,6 +500,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 390558631ac753b4ab9e921358f5794d, type: 3}
+--- !u!4 &50421335 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3821129208560533359, guid: 390558631ac753b4ab9e921358f5794d, type: 3}
+  m_PrefabInstance: {fileID: 50421334}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &307959479
 GameObject:
   m_ObjectHideFlags: 0
@@ -561,7 +566,7 @@ Camera:
   near clip plane: 0.01
   far clip plane: 1000
   field of view: 60
-  orthographic: 1
+  orthographic: 0
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
@@ -587,7 +592,7 @@ Transform:
   m_GameObject: {fileID: 307959479}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11, y: 1, z: -26}
+  m_LocalPosition: {x: 234, y: 1, z: -26}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -643,7 +648,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1081893313}
     m_Modifications:
     - target: {fileID: 124398734860132618, guid: 390558631ac753b4ab9e921358f5794d, type: 3}
       propertyPath: m_Layer
@@ -823,15 +828,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3821129208560533359, guid: 390558631ac753b4ab9e921358f5794d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 16.999992
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3821129208560533359, guid: 390558631ac753b4ab9e921358f5794d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.5202942
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3821129208560533359, guid: 390558631ac753b4ab9e921358f5794d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.0533667
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3821129208560533359, guid: 390558631ac753b4ab9e921358f5794d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1014,6 +1019,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 390558631ac753b4ab9e921358f5794d, type: 3}
+--- !u!4 &419208242 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3821129208560533359, guid: 390558631ac753b4ab9e921358f5794d, type: 3}
+  m_PrefabInstance: {fileID: 419208241}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &471950798
 GameObject:
   m_ObjectHideFlags: 0
@@ -1158,6 +1168,40 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1081893312
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1081893313}
+  m_Layer: 0
+  m_Name: DancingZombies
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1081893313
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1081893312}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 17, y: -3.5202942, z: -4.0533667}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 50421335}
+  - {fileID: 419208242}
+  - {fileID: 1687794328}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1396678265
 GameObject:
   m_ObjectHideFlags: 0
@@ -1239,7 +1283,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_TargetDisplay: 0
 --- !u!224 &1396678269
 RectTransform:
@@ -1357,6 +1401,107 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &1687794327
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1687794328}
+  - component: {fileID: 1687794331}
+  - component: {fileID: 1687794330}
+  - component: {fileID: 1687794329}
+  m_Layer: 0
+  m_Name: Canvas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1687794328
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1687794327}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 4.0533667}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1081893313}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 215, y: 134.0203}
+  m_SizeDelta: {x: 464, y: 261}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1687794329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1687794327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &1687794330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1687794327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 1
+--- !u!223 &1687794331
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1687794327}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
 --- !u!1 &1705911655
 GameObject:
   m_ObjectHideFlags: 0
@@ -1441,20 +1586,20 @@ MonoBehaviour:
     Pe\xF1a Garc\xEDa\r\n\r\n\r\nMain Programmers\r\nJuan Jos\xE9 Rodr\xEDguez de
     Pra Avil\xE9s \"JotaJueves\"\r\nMario Pic\xF3 Busquier \"Davter\"\r\n\r\n\r\nJunior
     Programmer\r\nJos\xE9 Gabriel \"Gabhyxx\" Pe\xF1a Garc\xEDa\r\n\r\n\r\nGame Designer\r\nJos\xE9
-    Gabriel \"Gabhyxx\" Pe\xF1a Garc\xEDa\r\n\r\n\r\nGitHub Assistant\r\nJuan Jos\xE9
-    Rodr\xEDguez de Pra Avil\xE9s \"JotaJueves\"\r\n\r\n\r\n\r\nSpecial Thanks\r\n\r\nImported
-    Assets\r\n\r\nUnity Asset Store\r\nConifers [BOTD] by forst\r\nFountain Prop
-    by Thunderent\r\nSkybox Series Free by Avionx\r\nFirst Aid Set by GeeKay 3D\r\nHungry
-    Zombie by Andryuha1981\r\nSci-Fi Pistol [PBR] by Star Games Studio\r\nP90 HD
-    by 255 pixel Studios\r\nSci-fi Guns SFX Pack by Mikael Vanninen\r\n\r\nFreeSound\r\nExplosion
-    by Iwiploppenisse\r\nAlarm & Explosion by Johnnie_Holiday\r\nDamaged 2 \u2013
-    The Ridge \u2013 Host by bananplyte\r\nMouse Click by deleted_user_4772965\r\nZombie
-    Bite by Lukeo135\r\nZombie_Attack_1 by MisterKidX\r\n\r\nSketchfab\r\nRecurve
-    Bow by MrEliptik\r\n\r\nMusic\r\nGameplay music\r\nHuman Haven by Bolted Redemption\r\n\r\nCredits
-    music\r\nFly Again by TURNSTILE\r\n\r\n\r\nEOI Teachers\r\n\r\nProgramming\r\nElena
-    Blanes Fernandez\r\nVioleta S\xE1ez Botella\r\nAlejandro Montero Vila\r\nDaniel
-    S\xE1nchez L\xF3pez\r\n\r\n\r\nEmployability\r\nAfrica Lucena Montesinos\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nAnd
-    you :)"
+    Gabriel \"Gabhyxx\" Pe\xF1a Garc\xEDa\r\n\r\n\nAI Programmer\nMario Pic\xF3 Busquier
+    \"Davter\"\n\n\r\nGitHub Assistant\r\nJuan Jos\xE9 Rodr\xEDguez de Pra Avil\xE9s
+    \"JotaJueves\"\r\n\r\n\r\n\r\nSpecial Thanks\r\n\r\nImported Assets\r\n\r\nUnity
+    Asset Store\r\nConifers [BOTD] by forst\r\nFountain Prop by Thunderent\r\nSkybox
+    Series Free by Avionx\r\nFirst Aid Set by GeeKay 3D\r\nHungry Zombie by Andryuha1981\r\nSci-Fi
+    Pistol [PBR] by Star Games Studio\r\nP90 HD by 255 pixel Studios\r\nSci-fi Guns
+    SFX Pack by Mikael Vanninen\r\n\r\nFreeSound\r\nExplosion by Iwiploppenisse\r\nAlarm
+    & Explosion by Johnnie_Holiday\r\nDamaged 2 \u2013 The Ridge \u2013 Host by bananplyte\r\nMouse
+    Click by deleted_user_4772965\r\nZombie Bite by Lukeo135\r\nZombie_Attack_1 by
+    MisterKidX\r\n\r\nSketchfab\r\nRecurve Bow by MrEliptik\r\n\r\nMusic\r\nGameplay
+    music\r\nHuman Haven by Bolted Redemption\r\n\r\nCredits music\r\nFly Again by
+    TURNSTILE\r\n\r\n\r\nEOI Teachers\r\n\r\nProgramming\r\nElena Blanes Fernandez\r\nVioleta
+    S\xE1ez Botella\r\nAlejandro Montero Vila\r\nDaniel S\xE1nchez L\xF3pez\r\n\r\n\r\nEmployability\r\nAfrica
+    Lucena Montesinos\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nAnd you :)"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1667,7 +1812,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 307959482}
   - {fileID: 2083322737}
-  - {fileID: 50421334}
-  - {fileID: 419208241}
+  - {fileID: 1081893313}
   - {fileID: 1396678269}
   - {fileID: 969449168}

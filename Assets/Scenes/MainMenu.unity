@@ -503,6 +503,14 @@ PrefabInstance:
       propertyPath: clickAudio
       value: 
       objectReference: {fileID: 249647974}
+    - target: {fileID: 8254156715113627749, guid: 6e01c6c47937e7d4e81b5d2af6fb5990, type: 3}
+      propertyPath: m_text
+      value: DAAVE
+      objectReference: {fileID: 0}
+    - target: {fileID: 8254156715113627749, guid: 6e01c6c47937e7d4e81b5d2af6fb5990, type: 3}
+      propertyPath: m_margin.x
+      value: -115.2442
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
