@@ -15,19 +15,19 @@ public class tutorial : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!dash && Movement.instance.transform.position.x > -228)
+        if (!dash && Movement.instance.transform.position.x > -228 && Movement.instance.transform.position.x < -220)
         {
             dash = true;
             tutorialDash.SetActive(true);
             StartCoroutine(Wait());
         }
-        if (!armyChange && Movement.instance.transform.position.x > -280)
+        if (!armyChange && Movement.instance.transform.position.x > -280 && Movement.instance.transform.position.x < -270)
         {
             armyChange = true;
             tutorialArmyChange.SetActive(true);
             StartCoroutine(Wait());
         }
-        if (!flashlight && Movement.instance.transform.position.x > -100)
+        if (!flashlight && Movement.instance.transform.position.x > -100 && Movement.instance.transform.position.x < -90)
         {
             flashlight = true;
             tutorialFlashlight.SetActive(true);

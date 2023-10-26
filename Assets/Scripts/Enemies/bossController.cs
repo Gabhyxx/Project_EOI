@@ -271,7 +271,7 @@ public class bossController : MonoBehaviour
                     transform.position -= Vector3.up * 0.05f;
                     yield return new WaitForSeconds(0.05f);
                 }
-                SceneManager.LoadScene(2);
+                SceneManager.LoadScene(2, LoadSceneMode.Single);
                 Destroy(gameObject);
                 
             }
